@@ -12,11 +12,11 @@ Suponemos que los array son correctos y tienen nombres.
 Importante: hay que respetar el orden de los nombres en la salida. */
 
 /**PASOS A SEGIR PARA RESOLVER EL PROBLEMA
-* Recorres el array de nombres.
-* Calculas la longitud de cada nombre.
-* Comparas esa longitud con una condición.
-* Filtras los nombres que cumplen la condición.
-* Guardas esos nombres en un nuevo array.
+* Recorro el array de nombres.
+* Calculo la longitud de cada nombre.
+* Comparo esa longitud con una condición.
+* Filtro los nombres que cumplen la condición.
+* Guardo esos nombres en un nuevo array.
  */
 
 let arrayNombres = ["Luis", "Estela", "Ángel", "Enya", "Jose Antonio"]; //tengo mi array con nombres
