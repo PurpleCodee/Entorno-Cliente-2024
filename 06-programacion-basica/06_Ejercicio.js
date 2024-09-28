@@ -7,13 +7,13 @@ a) Calcular los divisores del numero N y mostrarlos.
 b) Calcular la suma de los cuadrados de los divisores obtenidos en el paso anterior
 y mostrarla.
 c) Indicar si esa suma es un cuadrado o no (con una frase por pantalla)*/
-let n_positivo;
+let n_positivo = 0;
 let i;/*importante inicializar con un numero positivo*/
 let sumaCuadrados = 0;
-
+let miau = 0;
 do {
-    n_positivo = parseInt(prompt("Dame un número positivo: ", ""));
     
+    n_positivo = parseInt(prompt("Dame un número positivo: "));
     if (n_positivo > 0) {
         i = 1;  
         while (i <= n_positivo) { 
