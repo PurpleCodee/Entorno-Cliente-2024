@@ -39,4 +39,4 @@ forma de matriz” */
         }else{
             console.log("El numero no es correcto");
         }
-    }while(N <= 2);//quiero que se repita mientras la i sea mayor que el numero
+    }while(N <= 2);//quiero que se repita mientras N sea mayor que el numero
