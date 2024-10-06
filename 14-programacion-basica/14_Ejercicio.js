@@ -64,7 +64,7 @@ function generarColoresAletorios(opcion){
         for (let i = 0; i < franjas; i++) {
             do {
                 indiceAleatorioC = Math.floor(Math.random() * arrayColores.length);
-            } while (coloresAleatorio.length > 0 && arrayColores[indiceAleatorioC] === coloresAleatorio[coloresAleatorio.length - 1]); // Verifica que el color no sea el mismo que el anterior
+            } while (coloresAleatorio.length > 0 && arrayColores[indiceAleatorioC] == coloresAleatorio[coloresAleatorio.length - 1]); // Verifica que el color no sea el mismo que el anterior
             
             coloresAleatorio.push(arrayColores[indiceAleatorioC]);
         }

@@ -17,25 +17,35 @@ d) Aplicar Fiz-Buzz en los elemntos de la matriz y devolver otra matriz con los 
 */
 
 function main(){
-    let tam = 0
+
+    let tam = 0;
+    let matrizAle = [];
+    let numsAleatorio = 0;
+    //Pido tam de la matriz al usuario(N)
     do{
         tam = (parseInt(prompt("Dime el tamaño: ", "")));
 
     }while(tam < 2 || (isNaN(tam)));
-    
-    //Creo la matriz aleatoria
-    let numsAleatorio = Math.floor(Math. random() * (tam * 2 - tam)) + tam;
-    
-    for(let i = 0; i < tam; i++){
-        let matriz = [];
 
+    //Creo una matriz NxN con numeros aleatorios entre N y N*2
+   
+    //para crear una matriz debo de recorrerla y imprimmirla con un buclecito
+    for(let i = 0; i <  tam; i++){
+        matrizAle[i] = [];
+        cont = 0;
         for(let j = 0; j < tam; j++){
-            matriz[i][j] = numsAleatorio;
+            numsAleatorio = Math.floor(Math.random() * (tam * 2 - tam+1)) + tam; //formula de random n - tam + tam
+            matrizAle[i][j] = numsAleatorio;
+
+
         }
     }
-    console.log(matriz[i]);
-
+     //muestro la tabla de multiplicar
+     matrizAle.forEach(function(matrizAle){
+        console.log(matrizAle);
+    });
+    console.log(matrizAle);
+   
 }
-//llamo a mi pequeña funcion
 
     
