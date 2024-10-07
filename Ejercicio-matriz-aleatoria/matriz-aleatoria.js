@@ -21,6 +21,8 @@ function main(){
     let tam = 0;
     let matrizAle = [];
     let numsAleatorio = 0;
+    let mayor = 0;
+    let sumaElemnetos = 0;
     //Pido tam de la matriz al usuario(N)
     do{
         tam = (parseInt(prompt("Dime el tamaño: ", "")));
@@ -37,15 +39,19 @@ function main(){
             numsAleatorio = Math.floor(Math.random() * (tam * 2 - tam+1)) + tam; //formula de random n - tam + tam
             matrizAle[i][j] = numsAleatorio;
 
-
+            if(matrizAle[i][j] > mayor){
+                mayor = matrizAle[i][j];
+            }
+            sumaElemnetos+=matrizAle[i][j];
         }
     }
+    console.log(mayor);//numero mayor
+    console.log(sumaElemnetos);
+
      //muestro la tabla de multiplicar
      matrizAle.forEach(function(matrizAle){
         console.log(matrizAle);
-    });
-    console.log(matrizAle);
-   
+    });   
 }
 
     

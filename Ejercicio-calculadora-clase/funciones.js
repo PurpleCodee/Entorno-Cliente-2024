@@ -67,7 +67,7 @@ function dividir(num1,num2){
 • Tú decides qué parámetros recibe y que valores devuelve
 */
 
-function recogeOperacion(primerNum, segundoNum){
+function recogeOperacion(num1,num2){
 
     let opcion = 0;
     
@@ -80,26 +80,33 @@ function recogeOperacion(primerNum, segundoNum){
         4-> Dividir`
     )));
 
-    switch (opcion){
-        case 1:
-            sumar(primerNum, segundoNum);
-        break;
+    let resultado = 0;
 
-        case 2:
-            restar(primerNum, segundoNum);
-        break;
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ switch (opcion){
+    case 1:
+        resultado = sumar(num1, num2);
 
-        case 3:
-            multiplicar(primerNum, segundoNum);
-        break;
+    break;
 
-        case 4:
-            dividir(primerNum, segundoNum);
-        break;
+    case 2:
+        resultado = restar(num1, num2);
+    break;
 
-        default:
-        alert("Opción no válida.");
-    }
+    case 3:
+        resultado = multiplicar(num1, num2);
+    break;
+
+    case 4:
+        resultado = dividir(num1, num2);
+    break;
+
+    default:
+    alert("Opción no válida.");
+}
+
+    return resultado;
+  
 }
 
 /*
@@ -111,8 +118,12 @@ operación.
 */
 
 function principal(){
- let mensaje1 = recogerNumero("Introduce un numero 1: ");
- let mensaje2 = recogerNumero("Introduce un numero 2: ");
- let operacion = recogeOperacion(mensaje1,mensaje2);
- alert("Resultado: " + operacion);  
+ let num1 = recogerNumero("Introduce un numero 1: ");
+ let num2 = recogerNumero("Introduce un numero 2: ");
+ console.log(num1);
+ console.log(num2);
+let miResultado = recogeOperacion(num1,num2);
+alert("Resultado: " +  miResultado); 
+
 }
+
