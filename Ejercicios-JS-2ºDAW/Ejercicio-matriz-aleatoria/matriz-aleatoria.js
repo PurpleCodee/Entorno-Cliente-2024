@@ -49,33 +49,41 @@ function main(){
      //-----------------------------MUESTRO PRIMERA MATRIZ---------------------------------------
     console.log(mayor);//numero mayor
     console.log(sumaElemnetos);//guardo la suma de los elementos
-
+    
+    console.log("------------------------------------------------");
+    
      //muestro la tabla de multiplicar
      matrizAle.forEach(function(matrizAle){
         console.log(matrizAle.join(" "));
     });   
     //--------------------------------------------------------------------------------------------
-   
-    for(let i = 0; i < matrizAle; i++){
-        let nuevaMatriz = [];
+    let nuevaMatriz = [];
+    for(let i = 0; i < matrizAle.length; i++){
+        fila = [];
 
-        for(let j = 0; j < matrizAle; i++){
-            nuevaMatriz = matrizAle[i][j];//guardo los valores originales
+        for(let j = 0; j < matrizAle.length; j++){
+            let valor = matrizAle[i][j];//guardo los valores originales
 
     //-------------------------------SIGO DENTRO DEL DOBLE BUCLE---------------------------------------
-            if(nuevaMatriz[i][j] % 0 == 3 && nuevaMatriz[i][j] % 0 == 5 ) console.log("fizz");
-                
+            if(valor % 3 == 0 && valor % 5 == 0 ){
+                fila.push("fizzbuzz");
 
-            else if(nuevaMatriz[i][j] % 0 == 3) console.log("buzz");
-                
+            }else if(valor % 3 == 0){
+                fila.push("fizz");
 
-            else if(nuevaMatriz[i][j] % 0 == 5 ) console.log("fizzbuzz");     
-              
+            }else if(valor % 5 == 0 ){
+                fila.push("buzz");
+
+            }else{
+                fila.push(valor);//si no es ninguno mantengo el valor
+            }     
         }
+        nuevaMatriz.push(fila);//agrego la fila a la matriz
     }
+    console.log("------------------------------------------------");
 
-    nuevaMatriz.forEach(function(nuevaMatriz){
-        console.log(nuevaMatriz.join(" "));
+    nuevaMatriz.forEach(function(fila){
+        console.log(fila.join(" "));
     });  
 }
 
