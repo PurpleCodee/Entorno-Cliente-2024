@@ -57,8 +57,6 @@ window.onload = function(){
     
 }
 
-
-
 function cambiar(){
     //llegar al elemento
     let dedo = document.getElementsByTagName("input")[0];//llego al elemento
@@ -66,3 +64,5 @@ function cambiar(){
     //hago cambio
     dedo.type = "password";
 }
+
+/**MANEJAR ESTILOS CON EL DOM */

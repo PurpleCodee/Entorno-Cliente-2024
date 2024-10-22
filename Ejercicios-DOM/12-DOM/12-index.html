@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!---enlaces js-->
+    <script src="12-DOM.js"></script>
+
+    <!---estilos-->
+    <style>
+        img{
+            width: 400px;
+            height: 400px;
+        }
+        .contenedor{
+            position: absolute;
+            margin: 100px 0;
+            top: 0;
+            left: 40%;
+
+
+        }
+
+        .botones{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            
+        }
+    </style>
+    <title>Ejercicio 12</title>
+</head>
+<body>
+    <!--Colocar img dentro de un div con position absolute y crear 2 botones--->
+
+    <div class="contenedor">
+        <img src="./fotos/foto1" alt="foto1">
+
+        <div class="botones">
+            <button name="botonI">Mover L</button> <!---al pulsarse se tiene que mover la img 5px a la izquierda-->
+            <button name="botonD"> Mover R</button> <!---al pulsarse se tiene que mover la img 5px a la derecha-->
+        </div>
+    </div>
+</body>
+</html>

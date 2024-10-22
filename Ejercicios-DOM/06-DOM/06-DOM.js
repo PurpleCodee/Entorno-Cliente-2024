@@ -6,7 +6,7 @@ window.onload = function () {
         por ese botón.
      */
 
-    let botones = document.querySelectorAll(".botones button");//selecciono todos los botones dentro del div
+    let botones = document.getElementsByTagName("button");//selecciono todos los botones dentro del div
 
     //recorro con un for normal porque se puede mi array de botones
     for(let i = 0; i < botones.length; i++){

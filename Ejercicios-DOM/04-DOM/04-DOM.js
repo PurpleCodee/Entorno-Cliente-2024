@@ -54,4 +54,6 @@ window.onload = function(){//permite que se carge antes el js
 
     };
 
+    //Explicacion de Jaime buene ejercicio para practica pero se le añade un boton para añadir una imagen
+
 
