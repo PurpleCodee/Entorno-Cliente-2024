@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---enlaces de scripts-->
+    <script src="./14-DOM.js"></script>
+    <!---css-->
+    <style>
+        body{
+            background-color: rgba(172, 236, 231, 0.176);
+        }
+        h1{
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            align-items: center;
+            text-align: center;
+            border: 1px solid purple;
+            color:rgba(77, 11, 77, 0.886);
+
+            padding: 10px;
+            background-color :rgba(77, 11, 77, 0.272);
+            width: 50%; 
+            max-width: 600px; 
+            margin: 0 auto; 
+
+
+        }
+        .listaMenu{
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color:rgba(156, 62, 156, 0.272);
+            display: flex;
+            margin: 20%;
+            padding: 10px;
+
+            width: 50%; 
+            max-width: 600px; 
+            margin: 0 auto;   
+        }
+
+        .listaMenu .submenu{
+            margin: 0 auto;  
+            display: none;/*Oculto los subElementos*/
+            position: absolute;/*permite la superposicion*/
+            background-color: rgb(237, 219, 238); /* Color sublista */
+            border: 1px solid #ccc;
+            z-index: 1000; /*encima de otros elementos */
+        }
+        a{
+            color:rgba(77, 11, 77, 0.886);
+        }
+
+    </style>
+    <title>Ejercicio 14</title>
+</head>
+<body>
+    <h1>Menu de navegacion web</h1>
+    <div class="listaMenu">
+        <ul>
+            <li>
+                <a href="#inicio">Inicio</a>
+                <ul class="submenu">
+                    <li><a href="#portada">Portada</a></li>
+                    <li><a href="#acercaDeMi">Acerca de mi</a></li>
+                    <li><a href="#misFotos">Mis fotos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#proyectos">Proyectos</a>
+                <ul class="submenu">
+                    <li><a href="#WebApps">Web Apps</a></li>
+                    <li><a href="#MobileApps">Mobile Apps</a></li>
+                    <li><a href="#Juegos">Juegos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#portafolio">Portafolio</a>
+                <ul class="submenu">
+                    <li><a href="#paginasWebs">Páginas Webs</a></li>
+                    <li><a href="#software">Software</a></li>
+                </ul>
+            </li>
+            <li><a href="#contacto">Contacto</a>
+            </li>
+        </ul>
+    </div>    
+</body>
+</html>
