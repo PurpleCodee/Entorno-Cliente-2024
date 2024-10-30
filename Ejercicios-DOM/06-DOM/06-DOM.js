@@ -18,10 +18,7 @@ window.onload = function () {
         }
     }
 
-
-
     //-----------------------------------------------------------------------------
-
     let botones2 = document.querySelectorAll(".botones2 button");
 
     botones2.forEach(boton => {
