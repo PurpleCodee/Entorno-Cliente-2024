@@ -21,7 +21,6 @@ window.onload = function(){
     let contPx4 = 1;
 
 
-
     //funcion del boton
     botonCorrer.onclick = function(){
         //aqui dentro meto todos los timers y las comprobbaciones para que se muevan los divs de manera aleatorio
