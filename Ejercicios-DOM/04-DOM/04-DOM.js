@@ -27,19 +27,19 @@ window.onload = function(){//permite que se carge antes el js
 
     //creo las funciones de mis botones
     avanzar.onclick = function(){
-        //compruebo 
+        //compruebo que si la i es menor que el ultimo elemento (5)
         if(i < lista_imagenes.length - 1){
-            i++;
-            fotos.setAttribute("src",lista_imagenes[i]);
+            i++;//avanzo
+            fotos.setAttribute("src",lista_imagenes[i]);//avanzo a la siguiente imagen
             
         }
     }
 
     retroceder.onclick = function(){
+        //compruebo si la i es maño la que la primera pos pues retrocedo
         if(i > 0){
             i--;
             fotos.setAttribute("src",lista_imagenes[i]);
-            
         }
     }
 

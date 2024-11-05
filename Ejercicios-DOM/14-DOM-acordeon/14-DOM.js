@@ -7,15 +7,15 @@
 window.onload = function(){
 
     //accedo directamente al elemento
-    let lista = document.getElementsByClassName("listaMenu")[0];//es un "array"
+    let lista = document.getElementById("listaMenu");//es un "array"
     // Obtén todos los elementos <li> dentro de "listaMenu"
     let elementos = lista.getElementsByTagName("li");//de esta manera accedo directamente al elemento de li
 
     //lo recorro y lo imprimo
     for(let i = 0; i < elementos.length; i++){
         //acedoa los elementos de ul
-        let subElemento = elementos[i].getElementsByTagName("ul")[0];
-        elementos[i].onmouseover = function(){
+        let subElemento = elementos[i].getElementsByClassName("submenu")[0];
+        elementos[i].onclick = function(){
 
             if(subElemento){//si hay subElento = a si existe elemento
                 subElemento.style.display = "block"; // Aparece la sublista

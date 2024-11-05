@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---enlaces de scripts-->
+    <script src="./14-DOM.js"></script>
+    <!---css-->
+    <style>
+        ul{
+            list-style: none;
+            padding: 0;
+            margin:0;
+        }
+        li{
+           
+        }
+
+        #listaMenu{
+            width: 300px;
+            border-bottom: 1px solid black;
+            background-color: cadetblue;
+            
+        }
+        #listaMenu li{
+            border-top: 1px solid black;
+        }
+        .submenu{
+            font-size: .75em;
+            background-color: aqua;
+            display: none;
+        }
+
+    </style>
+    <title>Ejercicio 14</title>
+</head>
+<body>
+    <h1>Menu de navegacion web</h1>
+        <ul id="listaMenu">
+            <li>Inicio
+                <ul class="submenu">
+                    <li>Portada</li>
+                    <li>Acerca de mí</li>
+                    <li>Mis fotos</li>
+                </ul>
+            </li>
+            <li>Proyecto
+                <ul class="submenu">
+                    <li>Web Apps</li>
+                    <li>Mobile Apps</li>
+                    <li>Juegos</li>
+                </ul>
+            </li>
+            <li>Portfolio
+                <ul class="submenu">
+                    <li>Páginas webs</li>
+                    <li>Software</li>
+                </ul>
+            </li>
+            <li>Contacto</li>
+        </ul>    
+</body>
+</html>

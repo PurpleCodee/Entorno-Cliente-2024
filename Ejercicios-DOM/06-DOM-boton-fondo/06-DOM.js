@@ -27,4 +27,27 @@ window.onload = function () {
             document.body.style.backgroundColor = color2;
         } 
     });
+
+    //modificacion para que cuando haga clic en el fondo se restaure todo
+
+    /*-------------UTILIZO NODOS------------*/
+    //1- creo el fondo
+    let fondo = document.createElement("div");
+    //2- configuro para que ocupe toda la pantalla
+    fondo.setAttribute("style", `position: fixed; /*fijo para cubrir toda la ventana*/
+            top: 0;
+            left: 0;
+            width: 100%; /*ocupo todo el ancho*/
+            height: 100%;/*ocupo todo el alto*/
+            background-color: rgba(0, 0, 0, 0.2); /* Color gris semitransparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;/*lo pongo por encima de otros elementos*/
+            `);
+    //3- agrego el fondo al body
+    document.body.appendChild(fondo);
+    fondo.onclick = () =>{
+        document.body.style.backgroundColor = "white";
+    }
 }
