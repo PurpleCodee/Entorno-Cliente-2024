@@ -19,7 +19,6 @@ window.onload = function(){
         let usuarioTexto = document.createTextNode(prompt("Dime una frase o palabra"));
         nuevo.appendChild(usuarioTexto);
         let padre = nuevo.parentNode;
-        
 
 
     }
