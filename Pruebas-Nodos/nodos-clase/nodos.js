@@ -1,61 +1,52 @@
-window.onload = function () {
+window.onload = () => {
     let boton1 = document.getElementsByTagName("input")[0];
-    let boton2 = document.querySelector("input[type='button']")[1]
+    let boton2 = document.querySelectorAll("input[type='button']")[1];
     let boton3 = document.getElementsByTagName("input")[2];
 
-    //funcion de boton1
     boton1.onclick = function () {
-        //1 creo nodo nuevo
-        let nuevo = document.createElement("p");
-        //2 (opcional) Atributo
-        nuevo.setAttribute("class", "parra");
-        //3 Creamos nodo texto
-        let texto = document.createTextNode("Soy el nuevo parrafo y me llamo Miguel");
-        //4 Engacho el nodo texto al nuevo nuevo nodo
+        //1er paso - Creamos el nodo
+        let nuevo = document.createElement("p"); //Como no esta enganchado a ningun sitio, no se ve. Se crea un p nuevo, sin texto
+
+        //2do paso (opcional) - ponerle atributos
+        nuevo.setAttribute("class", "parra"); //le añade clase / atributos
+
+        //3er paso - Creamos nodo texto
+        let texto = document.createTextNode("Soy el nuevo párrafo y me llamo Migue"); //Se añade texto al nodo nuevo
+
+        //4to paso - Enganchamos el nodo texto al nuevo
         nuevo.appendChild(texto);
-        //5 Asignar un padre nuevo
+
+        //5to paso - asignar un padre al nuevo.
         let papi = document.querySelector("section");
-
+        papi.appendChild(nuevo); //Lanza cuerda al nuevo nodo. Si se usa appendchild se coloca como ultimo hijo
         let bro = document.querySelectorAll("div")[2];
-
         papi.insertBefore(nuevo, bro);
-        //papi.appendChild(nuevo);
 
-        //desabilito boton
         this.disabled = true;
         boton2.disabled = false;
     }
 
-
-    //borrar elementos
     boton2.onclick = function () {
         let victima = document.getElementsByClassName("parra")[0];
-        //manera de que funcione siempre es preguntar quien es el padre niño dime quien es tu padre
-        let papi = victima.parentNode;
-
-        //y para borrar el hijo
+        let papi = victima.parentNode; //dedito apuntando al padre (en este caso el section)
         papi.removeChild(victima);
-
-        //this.disabled = true;//desactivo el boton
-        //boton1.disabled = false
-
+        this.disabled = true;
+        boton1.disabled = false;
     }
 
     boton3.onclick = borrar;
 
-
-    function borrar() {
-        //si mato a un hijo necesito apuntar al hijo y al padre
+    function borrar () {
         let papi = document.querySelector("section");
-        //let victimas = document.querySelectorAll("selection div");//si no se quien es el padre quito el selection
+        let victimas = document.querySelectorAll("section div");
 
-        let victima = papi.children;//no quenes son los hijos y de esta manera me da un htmlColection de todos los hijos del padre(NO ESTA EN APUNTES)
+        //el padre puede dar lista de hijos
+        let masVictimas = papi.children;
 
-        //ASI FUNCIONA Y ESTA PERFECTO
         for (let i = 0; i < victimas.length; i++) {
-            let papi = victimas[i].parentNode;//forma correcta
-            papi.removeChild(victimas[i]);
-
+            //let papi = victimas[i].parentNode; //Se puede usr el parent node si no sabemos el padre del hijo
+            //papi.removeChild(victimas[i]);
+            victimas[i].parentNode.removeChild(victimas[i]);
         }
     }
 }

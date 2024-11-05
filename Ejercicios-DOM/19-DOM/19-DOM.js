@@ -1,27 +1,21 @@
-window.onload = function(){
-    //declaro las variables y accedo a l os elemeton
-    //let lista = document.getElementsByClassName("listaElementos")[0];
-    //accedo al los li
-    //let elementos = document.getElementsByTagName("li")[0];
-    //mi boton
+window.onload = function() {
+    // Accede al botón "Añadir"
     let aniadir = document.getElementById("botonAnadir");
-
-    //recorro los elementos(elemento)
-    //lo puedo hacer con un for normal
-    /*Array.from(elementos).forEach(elemento => {
+    
+    // Asigna la función al evento "onclick" del botón
+    aniadir.onclick = function() {
+        // Pide al usuario un texto para el nuevo elemento
+        let usuarioTexto = prompt("Dime una frase o palabra");
         
-        
-    });*/
 
-    aniadir.onclick = function(){
-        //creo un elemento li
-        let nuevo = document.createElement("li");
-        let usuarioTexto = document.createTextNode(prompt("Dime una frase o palabra"));
-        nuevo.appendChild(usuarioTexto);
-        let padre = nuevo.parentNode;
-
-
+        if (usuarioTexto) { // Verifica que el usuario ingresó texto
+            // Crea un nuevo elemento "li"
+            let nuevo = document.createElement("li");
+            nuevo.textContent = usuarioTexto; // Asigna el texto al "li"
+            
+            // Agrega el nuevo "li" al "ul" con id "lista"
+            let lista = document.getElementById("lista");
+            lista.appendChild(nuevo);
+        }
     }
-
-
 }

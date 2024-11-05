@@ -34,6 +34,5 @@ window.onload = function(){
 
         }
     }
-
     //hacerlo entero de la forma de Jaime el mio es muy largo hacerlo con el display
 }
