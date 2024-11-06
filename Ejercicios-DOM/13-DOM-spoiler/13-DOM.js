@@ -26,4 +26,24 @@ window.onload = function(){
         }
     }
     //hacerlo entero de la forma de Jaime el mio es muy largo hacerlo con el display
+
+
+
+    /**----------------HAGO DE NUEVO EL SPOILER PERO BIEN--------------- */
+    let mostrar = document.getElementsByTagName("input")[0];
+    let img = document.querySelector("img");
+
+    //le pongo un filtro a mi img
+    img.style.filter = "blur(10px)";
+
+    mostrar.onclick = () =>{
+        if(mostrar.getAttribute("value") == "Mostrar"){
+            img.style.filter = "blur(0px)";//quito filtro
+            mostrar.setAttribute("value", "Ocultar");
+        } else {
+            img.style.filter = "blur(50px)";
+            mostrar.setAttribute("value", "Mostrar");
+        }
+    }
+
 }
