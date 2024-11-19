@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--enlace de js-->
+    <script src="1Form.js"></script>
+    <title>Ejercicio 1 de formularios</title>
+</head>
+<body>
+    <!--Formulario con dos campos de texto y un boton que se llame copiar
+    El segundo campo debe de estar solo en modo lectura(desabilitado para escribir)
+    El progrma debe de copiar el contenido del campo habilitado en el desabilitado
+    cuando se haga click en el boton-->
+
+    <form>
+        <label>Texto a copiar</label>
+        <br>
+        <input type="text" name="aCopiar">
+        <br>
+        <label>Texto pegado</label>
+        <br>
+        <input type="text" name="copiado" disabled>
+        <br>
+        <input type="button" name="copiar_texto" value="copiar">
+    </form>
+</body>
+</html>
