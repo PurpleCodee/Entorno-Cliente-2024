@@ -109,3 +109,6 @@ formu.reset();
 if(noerrores){
     formu.submit();
 }
+
+
+//---------------------APUNTES FORMULARIOS-------------------------JAIME 2 PARTE
