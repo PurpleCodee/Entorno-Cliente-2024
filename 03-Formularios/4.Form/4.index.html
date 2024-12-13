@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="4form.js"></script>
+    <title>Ejercicio 4 formularios</title>
+</head>
+<body>
+    <!---Realiza un programa que, haciendo uso de dos campos de texto y un botón, realice la
+        conversión de dólares y euros (1$ = 0.83€).
+        Completa el ejercicio añadiendo dos campos y un botón nuevos para implementar la
+        conversión contraria (de euros a dólares).
+        
+        b) Mejora el ejercicio anterior usando solo dos campos y un botón para realizar ambas
+        conversiones. Para saber qué conversión debemos realizar en cada momento, esta se
+        debe seleccionar de una lista desplegable.-->
+
+        <form>
+            <label>Introduce el valor en Dolares $</label><br>
+            <input type="number" name="dolares"><br>
+            <label>Conversion a Euros €</label><br>
+            <input type="number" name="eurosConversion" disabled><br><br>
+
+            <input type="submit" name="botonConvertir" value="Convertir"><br><br>
+
+            <label>Introduce el valor en Euros €</label><br>
+            <input type="number" name="euros"><br>
+            <label>Conversion a Dolares $</label><br>
+            <input type="number" name="dolarConversion" disabled><br><br>
+
+            <input type="submit" name="botonConvertir" value="Convertir"><br>
+        </form>
+</body>
+</html>

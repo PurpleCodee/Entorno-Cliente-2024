@@ -1,15 +1,9 @@
 window.onload = function(){
-    //Accedo al formulario
-    let form = document.forms[0];
-    //accedo a los chekbox
-    let box1 = form.elements[0];
-    let box2 = form.elements[1];
-    let box3 = form.elements[2];
-    let botonMostrar = form.elements[3];
-    let botonBorrar = form.elements[4];
-    let areaTexto = form.elements[5];
-    
-    botonMostrar.onclick = () => {
+    //---------------------------PRIMERA OPCION CON BOTON-------------------------
+
+    //let form = document.forms[0] , box1 = form.elements[0] , box2 = form.elements[1] , box3 = form.elements[2] , botonMostrar = form.elements[3];
+    //let botonBorrar = form.elements[4] , areaTexto = form.elements[5];
+    /*botonMostrar.onclick = () => {
         //creo un array y meto todas las opciones
         let seleccionados = [];
         //cada ve que se haga clic lo que se haya en el el checkbox se copia en el textarea
@@ -33,5 +27,29 @@ window.onload = function(){
     botonBorrar.onclick = () => {
         areaTexto.value = "";
     }
+    }*/
+
+    //--------------------------------MEJORA SIN BOTON---------------------------------
+    let form = document.querySelector("form");
+    let checkboxs = document.querySelectorAll("input[type='checkbox']");
+    let areaTexto = document.querySelector("textarea");
+
+    for (let element of checkboxs) {
+        element.addEventListener("click", function(){
+
+            mostrar(element);
+
+        });
+    }
+
+    
+    function mostrar(element){
+            if(element.checked){
+                areaTexto.value += element.value+" "; 
+            } else{
+                if(element.checked == false){
+                 areaTexto.value = areaTexto.value.replace(element.value+" ","");
+                }
+            } 
     }
 }
