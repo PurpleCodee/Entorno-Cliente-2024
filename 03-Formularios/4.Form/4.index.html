@@ -14,9 +14,9 @@
         
         b) Mejora el ejercicio anterior usando solo dos campos y un botón para realizar ambas
         conversiones. Para saber qué conversión debemos realizar en cada momento, esta se
-        debe seleccionar de una lista desplegable.-->
+        debe seleccionar de una lista desplegable.
 
-        <form>
+        <!--<form>
             <label>Introduce el valor en Dolares $</label><br>
             <input type="number" name="dolares"><br>
             <label>Conversion a Euros €</label><br>
@@ -29,6 +29,20 @@
             <label>Conversion a Dolares $</label><br>
             <input type="number" name="dolarConversion" disabled><br><br>
 
+            <input type="submit" name="botonConvertir" value="Convertir"><br>
+        </form>
+
+        <!--segunda forma de hacerlo con una lista desplegable
+        <br>
+        <br>-->
+        <form>
+            <label>Introduce el  tipo de conversion</label><br>
+            <input type="number" name="introducirValor"><br><br>
+            <select>
+                <option type="text" name="dolar">Dolares</option>
+                <option type="text" name="euro">Euros</option>
+            </select>
+            <input type="number" name="resultadoConversion" disabled><br><br>
             <input type="submit" name="botonConvertir" value="Convertir"><br>
         </form>
 </body>

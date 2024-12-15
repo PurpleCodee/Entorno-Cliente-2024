@@ -1,4 +1,5 @@
 window.onload = function(){
+    /*
     //Primero accedo al formulario
     let formu = document.querySelector("form");
     //accedo a los elementos del formulario
@@ -32,4 +33,23 @@ window.onload = function(){
             alert("Solo admite numeros");
         }
     }
+        */
+    let formu = document.querySelector("form"),
+    valor = formu.querySelector("input[name='introducirValor']");
+    lista = document.querySelector("select"),
+    inputRes = formu.querySelector("input[name='resultadoConversion']");
+
+    formu.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let opcionesSelect = lista.value;
+
+        if(opcionesSelect === "Dolares"){
+            inputRes.value = valor.value * 0.83;
+        } else if(opcionesSelect === "Euros"){
+            inputRes.value = valor.value * 1.05;
+        } else {
+            inputRes.value = "0.00";//no coincice ninguna opcion
+        }
+    });
 }
