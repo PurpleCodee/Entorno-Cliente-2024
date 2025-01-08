@@ -6,9 +6,6 @@ window.onload = function(){
     let {datoNombre, datoCorreo, datoFecha, datoPersonaje, datoWeb, datoContrasena,datoContrasena_bien} = formu.elements;
     //guardo los valores de los select
     let listaAnimes = formu.querySelector("select");
-    //guardo el valor de los radiobutton
-    let generos = formu.querySelector("input[name='genero']");//cheked para comprobar
-
 
     //en el boton enviar pasa todo
     enviar.addEventListener("click", (event) =>{
@@ -81,8 +78,8 @@ window.onload = function(){
                 alert("El correo debe de contener el signo @ :(");
                 esValido = false;
             }
-            else if(!datoCorreo.value.includes(".es" || !datoCorreo.value.includes(".com"))){
-                alert("El correo debe de contener una extension correcta");
+            else if (!(datoCorreo.value.includes(".es") || datoCorreo.value.includes(".com"))){
+                alert("El correo debe de contener una extension correcta .es o .com");
                 esValido = false;
             }
             else {
@@ -90,6 +87,32 @@ window.onload = function(){
                 datoCorreo.style.border = "", esValido = true;
             }
          }
+         //AQUI DEBERIA VALIDAR LA FECHA PERO YA ESTA VALIDADA EN EL 11
+          //------------------VALIDACION LISTA SELECT--------------------
+          if(listaAnimes.value === ""){
+            alert("No hay ningun anime selecionado");
+            listaAnimes.style.border = "2px solid red";
+            esValido = false;
+          } else {
+            alert("Se ha seleccionado: " + `${listaAnimes.value}`);
+            listaAnimes.style.border = "", esValido = true;
+          }
+
+          //------------------VALIDACION RADIO BUTTONS--------------------
+          //verifico si alguno esta seleccionado -> convierto en array la node list con -> Array.from(nodeList)
+          //Compruebo que almenos uno esta true cheked con .some
+          //con Array.find encuentro el que esta cheked
+
+           //guardo el valor de los radiobutton
+            let generos = formu.querySelector("input[name='genero']:checked");//cheked para comprobar
+            //opcion facil ("input[name='genero']:cheked" -> compruebo que esta cheked
+          if(!generos){
+            alert("Selecciona algun genero de anime :(");
+            esValido = false;
+          } else {
+            alert("Perfecto, has seleccionado: " + generos.value);
+          }
+
          //------------------VALIDACION WEB--------------------contener :https// y no estar vacio
          if(datoWeb.value === ""){
             alert("El campo de la web no puede estar vacio :(");
@@ -112,7 +135,7 @@ window.onload = function(){
             datoContrasena.style.border = "2px solid red";
             esValido = false;
          } else {
-            if(datoContrasena.length < 8 || datoContrasena.length > 12){
+            if(datoContrasena.value.length < 8 || datoContrasena.value.length > 12){
                 alert("La contraseña no puede ser ni menor que 8 ni mayor 12 :(");
                 esValido = false;
             }
@@ -143,6 +166,47 @@ window.onload = function(){
          } else {
             alert(`Has seleccionado: ${listaAnimes.value}`);
          }
+
+         //Si ya todo es valido
+         if(esValido){
+            // localStorage.setItem("nombre", datoNombre.value);
+            // localStorage.setItem("correo", datoCorreo.value);
+            // localStorage.setItem("anime", listaAnimes.value);
+            // localStorage.setItem("genero", generos.value);
+            // localStorage.setItem("personaje", datoPersonaje.value);
+            // localStorage.setItem("web", datoWeb.value);
+
+            // window.location.href = "./web_bien.html";
+            
+        //Si no pudiese modificar el html puedo hacer esto
+        let nombre = localStorage.getItem("nombre");
+        let correo = localStorage.getItem("correo");
+        let anime = localStorage.getItem("anime");
+        let genero = localStorage.getItem("genero");
+        let personaje = localStorage.getItem("personaje");
+        let web = localStorage.getItem("web");
+
+        // Verifico que los datos se han guardado correctamente
+        if (nombre && correo && anime && genero && personaje && web) {
+            // Crear un nuevo contenedor para mostrar los datos
+            let divDatos = document.createElement("div");
+            // Insertar los datos con saltos de línea
+            divDatos.innerHTML = `
+                <p>El nombre del usuario es: ${nombre}</p>
+                <p>El correo del usuario es: ${correo}</p>
+                <p>El anime favorito del usuario es: ${anime}</p>
+                <p>El genero de anime seleccionado es: ${genero}</p>
+                <p>El personaje favorito es: ${personaje}</p>
+                <p>La web de referencia es: ${web}</p>
+            `;
+
+            // Insertar el contenedor en el body de la página
+            document.body.appendChild(divDatos);
+        } else {
+            console.error("No se encontraron los datos en el almacenamiento.");
+        }
+        }
+
 
     });
 }
