@@ -1,0 +1,73 @@
+NUEVO TEMA: EXPRESIONES REGULARES
+---------------------------------
+Expresiones regulares: Sublenguaje detro de los lenguajes de programacion, que se utiliza para encontrar coincidencias en palabras o cadenas.
+expresion/flags  se activan o se detectan
+
+En expresiones regulares existe algo llamado metacaracteres, que son comodines para construir expresiones regulares, existen 2 tipos
+
+	*Sustitucion: Con ellos indicamos que esperamos que aparezca en un lugar determinado o en una posicion determinada del patron que busco, por ejemplo que el tercer caracter de una cadena siempre sea una (a)
+	*Cantidad: Los de cantidad me permiten indicar cuantas veces debe de apareces un metacaracter, por ejemplo yo quiero buscar letras y que se repitan (3 veces o 0 o mas veces)
+
+EXPRESIONES REGUALES EN JS
+--------------------------
+/ . equivale a cualquier caracter(no coge saltos de linea pero si tabulaciones)
+
+/ ... equivale a 3 caracteres
+
+/ .jgp equivale a un caracter y lo que sigue 
+
+/ .\  coge cualquier caracter segido de un punto
+
+/  \.... coge la extension de el fichero y lo sigiente
+
+/ [] equivale a un or || (cada bloque equivale a un caracter) --> [aeiou] me busca las a e i o u
+
+/ [02467]. 
+
+/ alumn[ao]s busca tanto alumnos como alumnas
+
+/ [a-z] corchetes con rangos, en este caso busca toas las letras minusculas desde la a hasta la z(si acentos)
+
+/ [0-9] coerchetes con rangos, en este caso me da los numeros del 0 al 9 excluyendo los de dos cifras
+
+/ [0-367] corchetes con langos, me busca coincidencias de 1 caracter o el 0123 o es 67 es lo mismo que [01234567]
+
+/ [a-zñ] corchetes con rangos me busca de la a a la z minusculas y la ñ minuscula
+
+Rangos invertidos:
+-----------------
+Los rangos invertidos los podemos utilizar para detectar lo que no queremos encontrar
+/ [^a-z]  no quiero que me encuentre nada desde la a a la z minuscula(pero me coge las mayusculas, las ñ, los acentos y mas cosas)
+
+Las alternativas:
+-------------------
+Son como un or de patrones largos
+/ (alumnos|alumnas) me seleciona exactamente alumnos y alumnas, son mas concretas
+/ (alumn|[oa]s|codigo|[1-5][78])
+
+Atajos especiales de JS:
+-----------------------
+/ \d Colocar digitos  (las mayusculas lo niegan y las minusculas lo afirmas)
+/ \w Me coge cualquier caracter alfanumerico y el guion bajo 
+/ \s Cualquier caracter que sea un espacio en blanco
+
+Segunda clase de expresiones resgulares
+---------------------------------------
+Metacaracteres de cantidad-->
+
+/ * Se repite 0 o mas veces
+/ + Se repite 1 o mas veces
+/ ? Se repite 0 o 1 veces
+/ {3} Se repite 3 veces --> ejemplo alumnos{3,9} que se repita la s entre 3 y 9 veces
+/ {numero,} La coma significa de 1 a infinitas veces
+
+Anclas
+------
+Las anclas son metacaracteres que nos permiten delimitar patrones.
+Si quiero buscar una palabra en concreto las necesitare utilizar.
+
+/ ^a Empieza por a.
+
+/ $ Sirve para indicar como debe de terminar un patron.
+
+/  \ Sirve para buscar delimitar espacios, para que no cuente espacios o signos de puntacion.

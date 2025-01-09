@@ -21,23 +21,21 @@ window.onload = function(){
     // Accediendo al formulario
     let formu = document.querySelector("form");
     let enviar = document.querySelector("input[name='botonEnviar']");
+    let resetear = document.querySelector("input[name='botonReset']");
 
     // Accediendo a los campos del formulario usando form.elements --> De esta manera se haccede al name, solo al name
     let { datoDni, datoNombre, datoApellidos, datoFecha, datoWeb, datoContrasena } = formu.elements;
+
+    //---------------RESETEAR FORMULARIO------------------
+    resetear.addEventListener("click", (event) =>{
+        formu.reset();
+    },false);
 
     //valido en el boton enviar - asocio el listener al boton click
     enviar.addEventListener("click", (event) =>{
         event.preventDefault();
         //booleanito
         let esValido = true;
-
-        // Funcion Limpiar los mensajes de error previos
-        function QuitarError(input) {
-            let error = input.parentElement.querySelector("span");
-            if (error) {
-                error.remove();
-            }
-        }
 
         //Funcion validar fechas
         function validarFecha(dia,mes,anio){
@@ -84,7 +82,6 @@ window.onload = function(){
              //si es valido
              else{
                 alert("El DNI es valido");
-                QuitarError(datoDni);
                 datoDni.style.border = "";
                 esValido = true;
              }
@@ -111,7 +108,6 @@ window.onload = function(){
             //si todo esta correcto
             else {
                 alert("El nombre o los nombres son validos");
-                QuitarError(datoNombre);
                 datoNombre.style.border = "";
                 esValido = true;
             }
@@ -134,7 +130,6 @@ window.onload = function(){
             }
             else{
                 alert("El apellido o los apellidos son validos :)");
-                QuitarError(datoApellidos);
                 datoApellidos.style.border = "";
                 esValido = true;
             }
@@ -157,7 +152,6 @@ window.onload = function(){
                 datoFecha.style.border = "2px solid red";
                 esValido = false;
             } else {
-                QuitarError(datoFecha);
                 datoFecha.style.border = "";
                 esValido = true;
             }
@@ -172,7 +166,6 @@ window.onload = function(){
             }
             else {
                 alert("La url introducida es valida :)");
-                QuitarError(datoWeb);
                 datoWeb.style.border = "";
                 esValido = true;
             }
@@ -187,7 +180,6 @@ window.onload = function(){
                 esValido = false;
             } else {
                 alert("La contraseña es valida");
-                QuitarError(datoContrasena);
                 datoContrasena.style.border = "";
                 esValido = true;
             }
@@ -197,6 +189,5 @@ window.onload = function(){
             esValido = true;
             window.location.href = "./web_datosCorrectos.html";
         }
-    });
-       
+    });    
 }
