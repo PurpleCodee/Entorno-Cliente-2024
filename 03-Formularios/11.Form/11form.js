@@ -62,7 +62,7 @@ window.onload = function(){
         }
         //------------------VALIDACION DE DNI-----------------
         //Si los campos estan vacios salta error
-        if(datoDni.value === ""){
+        if(datoDni.value.trim() === ""){
             alert("El campo no puede estar vacio");
             datoDni.style.border = "2px solid red";
             esValido = false;

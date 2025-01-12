@@ -1,0 +1,63 @@
+🐣 Fase de Captura (Capture Phase)
+Qué es:
+
+    Piensa en esto como si el evento comenzara desde el elemento más externo del documento (el <html>) y viajara hacia el elemento que realmente disparó el evento (llamado el target).
+    Es como cuando un perrito 🐶 corre hacia un hueso, pasando primero por el jardín 🌱, luego la terraza, y finalmente llega al hueso.
+
+Cómo funciona:
+
+    Durante esta fase, el navegador busca el elemento que causó el evento, desde el ancestro más lejano hacia el más cercano.
+
+Ejemplo visual:
+
+Si haces clic en un botón dentro de un <div> que está dentro de <body>, el camino sería:
+
+    <html> ➡️ 2. <body> ➡️ 3. <div> ➡️ 4. <button>
+
+Cómo usarla:
+
+Si quieres capturar eventos en esta fase, puedes pasar true como tercer argumento al addEventListener:
+
+element.addEventListener("click", miFuncion, true); // Aquí estás en la fase de captura.
+
+--------------------------------------------------------------------------------
+
+🎈 Fase de Burbuja (Bubbling Phase)
+Qué es:
+
+    Aquí el evento hace el camino inverso: empieza desde el elemento que disparó el evento (el target) y sube hacia los elementos padres, uno por uno.
+    Es como cuando soplas una burbuja 🫧: empieza pequeñita en tu mano (target) y luego flota hacia arriba, pasando por todo lo que está a su alrededor.
+
+Cómo funciona:
+
+    En esta fase, el evento "sube" desde el elemento más específico (el botón, por ejemplo) hasta el más general (como el <html>).
+
+Ejemplo visual:
+
+Si haces clic en el mismo botón, el camino sería:
+
+    <button> ➡️ 2. <div> ➡️ 3. <body> ➡️ 4. <html>
+
+Cómo usarla:
+
+Por defecto, los eventos en addEventListener se escuchan en esta fase. Solo necesitas escribir:
+
+element.addEventListener("click", miFuncion); // Aquí estás en la fase de burbuja.
+
+--------------------------------------------------------------------------------
+
+🎭 ¿Qué pasa si quiero detener el evento?
+
+    Detener la propagación completamente: Usa event.stopPropagation(). Esto evita que el evento siga viajando a otros elementos.
+
+element.addEventListener("click", (event) => {
+    event.stopPropagation(); // No se propagará más.
+    console.log("¡Evento detenido aquí!");
+});
+
+Evitar el comportamiento por defecto: Usa event.preventDefault(). Esto impide que ocurran las acciones predeterminadas del navegador, como enviar un formulario.
+
+button.addEventListener("click", (event) => {
+    event.preventDefault(); // El formulario no se enviará.
+    console.log("¡Acción predeterminada evitada!");
+});

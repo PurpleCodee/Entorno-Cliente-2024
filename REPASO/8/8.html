@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="8.js"></script>
+    <title>Cambiar color del DIV</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #colorDiv {
+            width: 100%;
+            height: 200px;
+            background-color: lightblue; /* Color inicial */
+        }
+        .controls {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorDiv"></div>
+    <div class="controls">
+        <h3>Elige un color:</h3>
+        <!-- Botones Radio -->
+        <div>
+            <label>
+                <input type="radio" name="color" value="red">
+                Rojo
+            </label>
+            <label>
+                <input type="radio" name="color" value="green">
+                Verde
+            </label>
+            <label>
+                <input type="radio" name="color" value="blue">
+                Azul
+            </label>
+        </div>
+
+        <h3>O selecciona de la lista:</h3>
+        <!-- Lista desplegable -->
+        <select id="colorSelect">
+            <option value="yellow">Amarillo</option>
+            <option value="purple">Morado</option>
+            <option value="orange">Naranja</option>
+        </select>
+    </div>
+</body>
+</html>

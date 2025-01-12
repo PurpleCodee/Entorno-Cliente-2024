@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="6.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Países</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Formulario de Países</h1>
+    <form id="form-paises">
+      <fieldset>
+        <legend>Selecciona los países:</legend>
+        <label>
+          <input type="checkbox" value="España" id="pais-espana"> España
+        </label>
+        <label>
+          <input type="checkbox" value="Francia" id="pais-francia"> Francia
+        </label>
+        <label>
+          <input type="checkbox" value="Italia" id="pais-italia"> Italia
+        </label>
+        <label>
+          <input type="checkbox" value="Alemania" id="pais-alemania"> Alemania
+        </label>
+        <label>
+          <input type="checkbox" value="Portugal" id="pais-portugal"> Portugal
+        </label>
+      </fieldset>
+      <hr>
+      <label for="lista-paises">Países seleccionados:</label>
+      <select id="lista-paises" size="5">
+        <!-- Opciones dinámicas se agregarán aquí -->
+      </select>
+    </form>
+  </div>
+</body>
+</html>

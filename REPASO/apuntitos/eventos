@@ -1,0 +1,86 @@
+Eventos del mouse: 🪤
+
+    "click": Cuando se hace clic en un elemento.
+    "dblclick": Cuando se hace doble clic en un elemento.
+    "mousedown": Cuando se presiona un botón del mouse.
+    "mouseup": Cuando se suelta un botón del mouse.
+    "mousemove": Cuando el mouse se mueve sobre un elemento.
+    "mouseover": Cuando el mouse entra en un elemento.
+    "mouseout": Cuando el mouse sale de un elemento.
+    "mouseenter": Similar a "mouseover", pero no se activa en elementos hijos.
+    "mouseleave": Similar a "mouseout", pero no se activa en elementos hijos.
+    "contextmenu": Cuando se abre el menú contextual (clic derecho).
+
+Eventos del teclado:⌨️
+
+    "keydown": Cuando se presiona una tecla.
+    "keyup": Cuando se suelta una tecla.
+    "keypress": (Obsoleto, usa "keydown" o "keyup") Cuando se presiona una tecla, pero solo para caracteres imprimibles.
+
+Eventos de entrada (formularios): 📋
+
+    "input": Cuando el valor de un campo de entrada cambia.
+    "change": Cuando el usuario confirma un cambio en un campo (por ejemplo, al salir del foco del campo).
+    "submit": Cuando un formulario se envía.
+    "focus": Cuando un elemento recibe el foco.
+    "blur": Cuando un elemento pierde el foco.
+    "focusin": Similar a "focus", pero burbujea.
+    "focusout": Similar a "blur", pero burbujea.
+    "select": Cuando se selecciona texto dentro de un campo <input> o <textarea>.
+
+Eventos de carga y recursos: 🐌
+
+    "load": Cuando un recurso (como imágenes o el documento completo) se ha cargado.
+    "unload": (Obsoleto) Cuando una página se está descargando.
+    "beforeunload": Antes de que una página se descargue.
+    "error": Cuando ocurre un error de carga.
+    "resize": Cuando se cambia el tamaño de la ventana del navegador.
+    "scroll": Cuando se desplaza el contenido de un elemento o ventana.
+
+Eventos táctiles (para dispositivos táctiles):👈🏻
+
+    "touchstart": Cuando se toca la pantalla.
+    "touchmove": Cuando se arrastra un dedo por la pantalla.
+    "touchend": Cuando se levanta el dedo de la pantalla.
+    "touchcancel": Cuando el sistema cancela un evento táctil (por ejemplo, una llamada interrumpe el toque).
+
+Eventos de arrastrar y soltar: 🚮
+
+    "drag": Mientras se arrastra un elemento.
+    "dragstart": Al comenzar a arrastrar un elemento.
+    "dragend": Al soltar un elemento arrastrado.
+    "dragenter": Cuando un elemento arrastrado entra en un área válida.
+    "dragleave": Cuando un elemento arrastrado sale de un área válida.
+    "dragover": Mientras un elemento arrastrado está sobre un área válida.
+    "drop": Cuando un elemento arrastrado se suelta en un área válida.
+
+Eventos multimedia:
+
+    "play": Cuando la reproducción de un medio comienza.
+    "pause": Cuando la reproducción de un medio se pausa.
+    "ended": Cuando la reproducción de un medio termina.
+    "timeupdate": Cuando cambia la posición del tiempo de reproducción.
+    "volumechange": Cuando cambia el volumen o el estado de silencio.
+    "seeked": Cuando se completa una operación de búsqueda.
+    "seeking": Cuando comienza una operación de búsqueda.
+
+Eventos del documento:
+
+    "DOMContentLoaded": Cuando el DOM se ha cargado completamente.
+    "readystatechange": Cuando el estado del documento cambia (por ejemplo, de "loading" a "interactive").
+    "visibilitychange": Cuando cambia la visibilidad de la página (por ejemplo, minimizar o cambiar de pestaña).
+
+Eventos del portapapeles:
+
+    "copy": Cuando se copia contenido.
+    "cut": Cuando se corta contenido.
+    "paste": Cuando se pega contenido.
+
+Eventos de red:
+
+    "online": Cuando el navegador recupera la conexión a internet.
+    "offline": Cuando el navegador pierde la conexión a internet.
+
+Eventos personalizados:
+
+    "custom": Puedes crear y escuchar eventos personalizados con CustomEvent.

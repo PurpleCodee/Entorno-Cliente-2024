@@ -1,0 +1,178 @@
+Básicos de Expresiones Regulares
+
+    /./ (Cualquier carácter):
+        El punto . coincide con cualquier carácter, excepto saltos de línea (\n).
+        Ejemplo: /.a/ encuentra "ba", "ca", "za", etc.
+
+    /.../ (Coincidir con un patrón literal):
+        Coincide con tres caracteres exactos en secuencia.
+        Ejemplo: /abc/ encuentra la secuencia "abc".
+
+    /.\jpg/ (Coincidir con cualquier carácter seguido de "jpg"):
+        El punto . coincide con cualquier carácter, seguido de la extensión ".jpg".
+        Ejemplo: /.\jpg/ encuentra "ajpg", "1jpg", etc.
+
+    /\.jpg/ (Escape de caracteres especiales):
+        El escape \ permite que busques caracteres especiales como el punto . literal.
+        Ejemplo: /\.jpg/ encuentra ".jpg" en una cadena.
+	-------------------------------------------------------------------------
+
+	Corchetes [] - Conjuntos y Rangos
+
+    [aeiou] (Conjunto de caracteres):
+        Coincide con cualquier vocal (minúscula).
+        Ejemplo: /[aeiou]/ encuentra "a", "e", "i", "o", "u" en cualquier parte de la cadena.
+
+    [02467] (Conjunto de números):
+        Coincide con cualquiera de los números que aparecen entre los corchetes.
+        Ejemplo: /[02467]/ encuentra cualquiera de los números 0, 2, 4, 6, o 7.
+
+    [a-z] (Rango de letras minúsculas):
+        Coincide con cualquier letra minúscula entre a y z.
+        Ejemplo: /[a-z]/ encuentra cualquier letra minúscula.
+
+    [0-9] (Rango de números):
+        Coincide con cualquier dígito del 0 al 9.
+        Ejemplo: /[0-9]/ encuentra "1", "5", "8", etc.
+
+    [a-zñ] (Rango de letras con ñ):
+        Coincide con letras minúsculas y la letra ñ.
+        Ejemplo: /[a-zñ]/ encuentra cualquier letra minúscula o ñ.
+
+	----------------------------------------------------------------------------
+	Rangos Invertidos y Exclusiones
+
+    [^a-z] (Negación de un rango):
+        Coincide con cualquier cosa que no sea una letra minúscula.
+        Ejemplo: /[^a-z]/ encuentra "A", "1", "@", etc., pero no "a", "b", "z".
+	
+	----------------------------------------------------------------------------
+
+	Alternativas | (OR lógico)
+
+    (alumnos|alumnas) (Alternativa):
+        Coincide con "alumnos" o "alumnas".
+        Ejemplo: /alumnos|alumnas/ encuentra cualquiera de las dos palabras.
+
+    (alumn|[oa]s|codigo|[1-5][78]) (Alternativa con más opciones):
+        Coincide con varios patrones posibles: "alumn", "alumnas", "codigo", o cualquier número entre 17 y 58.
+        Ejemplo: /alumn|[oa]s|codigo|[1-5][78]/ encuentra cualquiera de los patrones mencionados.
+
+	----------------------------------------------------------------------------
+
+	Atajos Especiales en JS
+
+    \d (Dígito):
+        Coincide con cualquier dígito (equivalente a [0-9]).
+        Ejemplo: /\d/ encuentra "1", "2", "9", etc.
+
+    \w (Caracter alfanumérico o guion bajo):
+        Coincide con letras, números o guion bajo (equivalente a [a-zA-Z0-9_]).
+        Ejemplo: /\w/ encuentra "a", "B", "3", "_".
+
+    \s (Espacio en blanco):
+        Coincide con espacios, tabulaciones, saltos de línea y otros caracteres de espacio en blanco.
+        Ejemplo: /\s/ encuentra un espacio en blanco, una tabulación, etc.
+	
+	----------------------------------------------------------------------------
+
+	Metacaracteres de Cantidad
+
+    * (Cero o más repeticiones):
+        Coincide con cero o más repeticiones del carácter anterior.
+        Ejemplo: /a*/ encuentra "", "a", "aa", "aaa", etc.
+
+    + (Una o más repeticiones):
+        Coincide con una o más repeticiones del carácter anterior.
+        Ejemplo: /a+/ encuentra "a", "aa", "aaa", pero no "" (vacío).
+
+    ? (Cero o una repetición):
+        Coincide con cero o una repetición del carácter anterior.
+        Ejemplo: /a?/ encuentra "", "a".
+
+    {n} (Exactamente n repeticiones):
+        Coincide con exactamente n repeticiones del carácter anterior.
+        Ejemplo: /a{3}/ encuentra "aaa", pero no "aa" ni "aaaa".
+
+    {n,} (De n repeticiones en adelante):
+        Coincide con al menos n repeticiones del carácter anterior.
+        Ejemplo: /a{2,}/ encuentra "aa", "aaa", "aaaa", etc.
+
+    {n,m} (Entre n y m repeticiones):
+        Coincide con entre n y m repeticiones del carácter anterior.
+        Ejemplo: /a{2,4}/ encuentra "aa", "aaa", o "aaaa", pero no "a" ni "aaaaa".
+
+	----------------------------------------------------------------------------
+
+	Anclas - Delimitar el Inicio y Final
+
+    ^ (Inicio de la cadena):
+        Coincide con el inicio de la cadena.
+        Ejemplo: /^a/ encuentra "a" al principio de una cadena.
+
+    $ (Final de la cadena):
+        Coincide con el final de la cadena.
+        Ejemplo: /a$/ encuentra "a" al final de una cadena.
+
+    \b (Límites de palabra):
+        Coincide con un límite de palabra. Es decir, la posición entre un carácter de palabra (letras, números o guiones bajos) y un carácter que no sea de palabra.
+        Ejemplo: /\babc\b/ encuentra "abc" solo si está separado por espacios o al principio o final de la cadena.
+	
+	---------------------VALIDACIONES UTILES-------------------------
+
+	correoElectronico = ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+
+	[a-zA-Z0-9._%+-]+: Coincide con el nombre de usuario, que puede contener letras, números, puntos, guiones bajos, símbolos %, +, y -.
+	@: Coincide con el símbolo de arroba.
+	[a-zA-Z0-9.-]+: Coincide con el dominio, que puede contener letras, números, puntos, y guiones.
+	\.[a-zA-Z]{2,}: Coincide con el punto seguido de una extensión de dominio (como .com, .org, etc.), que debe tener al menos dos caracteres.
+--------------------------------------------------------------------------------
+	contraseña = ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$
+
+	(?=.*[a-z]): Asegura que haya al menos una letra minúscula.
+	(?=.*[A-Z]): Asegura que haya al menos una letra mayúscula.
+	(?=.*\d): Asegura que haya al menos un número.
+	(?=.*[\W_]): Asegura que haya al menos un carácter especial (como !, @, #, etc.).
+	.{8,}: Asegura que la longitud mínima sea de 8 caracteres.
+--------------------------------------------------------------------------------
+	numTelefono = ^\d{3}-\d{3}-\d{4}$
+
+	\d{3}: Coincide con exactamente tres dígitos.
+	-: Coincide con el guion entre los grupos de dígitos.
+	\d{4}: Coincide con exactamente cuatro dígitos.
+--------------------------------------------------------------------------------
+	url = ^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$
+
+	^(https?|ftp):\/\/: Coincide con http, https o ftp seguido de ://.
+	[^\s/$.?#].[^\s]*$: Coincide con el resto de la URL, asegurándose de que no haya espacios ni caracteres no permitidos.
+--------------------------------------------------------------------------------
+	fecha = ^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$
+
+	formato 9/12/2000
+
+	(0[1-9]|[12][0-9]|3[01]): Coincide con el día, permitiendo de 01 a 31.
+	(0[1-9]|1[0-2]): Coincide con el mes, permitiendo de 01 a 12.
+	\d{4}: Coincide con el año, permitiendo exactamente 4 dígitos.
+--------------------------------------------------------------------------------
+	numPositivo = ^\d+$ 
+--------------------------------------------------------------------------------
+	direcionIPv4 = ^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
+
+	(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?): Coincide con un número entre 0 y 255.
+	\.: Coincide con el punto separador entre octetos.
+--------------------------------------------------------------------------------
+	codigoPostal = ^\d{5}$
+
+	\d{5}: Coincide con exactamente cinco dígitos.
+--------------------------------------------------------------------------------
+	letrasSinEspacios = ^[A-Za-z]+$
+--------------------------------------------------------------------------------
+	numDecimales = ^[A-Za-z]+$
+--------------------------------------------------------------------------------
+
+nombreCompleto = ^[A-Za-z]+(\s[A-Za-z]+)+$
+
+^[A-Za-z]+: Coincide con la primera palabra del nombre, que debe ser solo letras.
+(\s[A-Za-z]+)+$: Coincide con cualquier palabra adicional separada por espacios.
+
+

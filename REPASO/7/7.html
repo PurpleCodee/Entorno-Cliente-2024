@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <script src="7.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Mensajes</title>
+    <style>
+        /* Estilo básico para que los divs se vean bonitos */
+        .mensaje {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para el textarea */
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo para el botón */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .contador {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Publicar un Mensaje</h1>
+        
+        <!-- Área de texto para el mensaje -->
+        <textarea id="mensaje" maxlength="100" placeholder="Escribe tu mensaje aquí..."></textarea>
+        
+        <!-- Contador de caracteres -->
+        <div class="contador" id="contador">Caracteres restantes: 100</div>
+
+        <!-- Botón para publicar -->
+        <button id="publicar">Publicar</button>
+        
+        <!-- Área donde se agregarán los mensajes -->
+        <div id="mensajesPublicados"></div>
+    </div>
+</body>
+</html>
