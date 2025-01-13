@@ -13,80 +13,70 @@ window.onload = function () {
     let enviar = formu.getElementsByTagName("button")[1];
     console.log(enviar);
 
+    //Arrays necesarios para guardar aciertos y errores
+    let errores = [];
+    let validados = [];
+
+
+    //Funcion limpiar mensajes
+    limpiarMensajes = function () {
+        mensaje = document.querySelectorAll(".error, .valido");
+        for (const msg of mensaje) {
+            msg.remove();
+        }
+        errores = [];
+        validados = [];
+
+    }
+
+
+    //FUNCIONES PROPIAS -- errores
+    function crearError(mensajeError) {
+        if (!errores.includes(mensajeError)) {
+            let errDiv = document.createElement("div");
+            let texto = document.createTextNode(mensajeError);
+            errDiv.setAttribute("class", "error");
+            errDiv.appendChild(texto);
+            formu.appendChild(errDiv);
+            errDiv.style.border = "2px solid red", errDiv.style.marginTop = "10px";
+
+            //meto el error en el array
+            errores.push(mensajeError);
+        }
+    }
+
+
+    function todoGood(mensajeBien) {
+        if (!validados.includes(mensajeBien)) {
+            let bienDiv = document.createElement("div");
+            let texto = document.createTextNode(mensajeBien);
+            bienDiv.setAttribute("class", "valido");
+            bienDiv.appendChild(texto);
+            formu.appendChild(bienDiv);
+            bienDiv.style.border = "2px solid green", bienDiv.style.marginTop = "10px";
+
+            //meto el error en el array
+            validados.push(mensajeBien);
+        }
+    }
 
     //Primero creo el evento para resetear el formulario
     reset.addEventListener("click", (event) => {
         formu.reset();
-        //selecciono todos los mensajes
-        let mensajeError = document.querySelectorAll(".error");
-        //los recorro y los borro
-        for (const mensaje of mensajeError) {
-            mensaje.remove();
-        }
-
-        let mensajeBien = document.querySelectorAll(".valido");
-        for (const mensajito of mensajeBien) {
-            mensajito.remove();
-        }
-
-
+        //llamo a mi funcion -> limpiar mensajes
+        limpiarMensajes();
     }, false);
-
-    //FUNCIONES PROPIAS -- errores
-    //en este array acumulo los errores
-    let errores = [];
-    function crearError(mensajeError) {
-
-        if (mensajeError.trim() !== "") {
-
-            //lo que hace es comprobar si esta el mensaje de error uy no lo repite
-            if (errores.includes(mensajeError)) {
-                return;
-            }
-        }
-
-        let errDiv = document.createElement("div");
-        let texto = document.createTextNode(mensajeError);
-        errDiv.setAttribute("class", "error");
-        errDiv.appendChild(texto);
-        formu.appendChild(errDiv);
-        errDiv.style.border = "2px solid red", errDiv.style.marginTop = "10px";
-
-        //meto el error en el array
-        errores.push(mensajeError);
-    }
-
-    let validados = [];
-    function todoGood(mensajeBien) {
-        if (mensajeBien.trim() !== "") {
-
-            //lo que hace es comprobar si esta el mensaje de error uy no lo repite
-            if (validados.includes(mensajeBien)) {
-                return;
-            }
-        }
-
-        let bienDiv = document.createElement("div");
-        let texto = document.createTextNode(mensajeBien);
-        bienDiv.setAttribute("class", "valido");
-        bienDiv.appendChild(texto);
-        formu.appendChild(bienDiv);
-        bienDiv.style.border = "2px solid green", bienDiv.style.marginTop = "10px";
-
-        //meto el error en el array
-        validados.push(mensajeBien);
-    }
 
     //Despues creo el evento para mandar los datos del formulario
     enviar.addEventListener("click", (event) => {
         event.preventDefault();
-
+        
         //booleano para comprobar que es valido
         let esValido = true;
 
         //----------------------DNI------------------------
         if (dato_dni.value.trim() === "") {
-            crearError("Por favor rellena el campo del nombre");
+            crearError("Por favor rellena el campo del DNI");
             esValido = false;
             dato_dni.focus();
         } else {
@@ -96,51 +86,52 @@ window.onload = function () {
 
             if (caracter < 'A' || caracter > 'Z') {
                 crearError("Debe de contener una letra mayuscula al principio"),
-                esValido = false,
-                dato_dni.focus();
+                    esValido = false,
+                    dato_dni.focus();
 
-            } else if (numeros.length < 8 && isNaN(numeros)) {
-                crearError("La longitude deve de ser de 8"),
-                esValido = false,
-                dato_dni.focus();
+            } else if (isNaN(numeros) || numeros.length !== 8) {
+                crearError("La longitude debe de ser de 8"),
+                    esValido = false,
+                    dato_dni.focus();
             } else {
-                esValido = true , todoGood("El DNI es valido :)");
+                esValido = true,
+                todoGood("El DNI es valido :)");
             }
         }
 
         //----------------------NOMBRE------------------------
-        if(dato_nombre.value.trim() === ""){
+        if (dato_nombre.value.trim() === "") {
             crearError("El campo del nombre no debe de esta vacio");
             esValido = false,
-            dato_nombre.focus();
+                dato_nombre.focus();
         } else {
-             //la paso a mayuscula/separo por espacio
+            //la paso a mayuscula/separo por espacio
             let priLetra = dato_nombre.value.charAt(0).toUpperCase().trim();
             let palabras = dato_nombre.value.trim().split(" ");
 
-            if(priLetra < 'A' || priLetra > 'Z'){
-                crearError("No es una letra"); 
+            if (priLetra < 'A' || priLetra > 'Z') {
+                crearError("No es una letra");
                 esValido = false,
-                dato_nombre.focus();
+                    dato_nombre.focus();
 
-            } else if(palabras.length < 1 ||palabras.length > 2){
+            } else if (palabras.length < 1 || palabras.length > 2) {
                 crearError("Maximo 2 palabras, minimo 1 palabra");
                 esValido = false,
-                dato_nombre.focus();
+                    dato_nombre.focus();
 
-            } else{
+            } else {
                 todoGood("El nombre es valido :)");
                 esValido = true;
             }
         }
         //----------------------APELLIDO------------------------patrones
-        if(dato_apellido.value.trim() === ""){
+        if (dato_apellido.value.trim() === "") {
             crearError("El campo del apellido no debe de estar vacio");
             esValido = false;
 
-        } else{
+        } else {
             let regrexApellido = /^[A-ZÑ][a-zñ]*(\s[A-ZÑ][a-zñ]*)?$/;
-            if(!regrexApellido.test(dato_apellido.value.trim())){
+            if (!regrexApellido.test(dato_apellido.value.trim())) {
                 crearError("El apellido debe de comenzar en mayuscula y no pueden ser as de 3");
                 esValido = false;
                 dato_apellido.focus();
@@ -150,14 +141,14 @@ window.onload = function () {
             }
         }
         //----------------------FECHA------------------------
-        if(dato_fecha.value.trim() === ""){
+        if (dato_fecha.value.trim() === "") {
             crearError("La fecha debe de seleccionarse");
             esValido = false;
             dato_fecha.focus();
         } else {
             //convierto la fecha en un array
             let fechaSeparada = dato_fecha.value.split("-");
-            if(fechaSeparada[0].length === 4 || fechaSeparada[1].length === 2 || fechaSeparada[2].length === 2 ){
+            if (fechaSeparada[0].length === 4 || fechaSeparada[1].length === 2 || fechaSeparada[2].length === 2) {
                 todoGood("La fecha es valida");
             } else {
                 dato_fecha.focus();
@@ -166,12 +157,12 @@ window.onload = function () {
             }
         }
         //----------------------WEB------------------------
-        if(dato_web.value.trim() === ""){
+        if (dato_web.value.trim() === "") {
             crearError("El campo de la web debe ser rellenado");
             esValido = false;
             dato_web.focus();
         } else {
-            if(!dato_web.value.includes("https://")){
+            if (!dato_web.value.startsWith("https://")) {
                 crearError("El formato de la web no es valido :(");
                 esValido = false;
                 dato_web.focus();
@@ -182,12 +173,12 @@ window.onload = function () {
             }
         }
         //----------------------CONTRASEÑA------------------------
-        if(dato_contraseña.value.trim() === ""){
+        if (dato_contraseña.value.trim() === "") {
             crearError("El campo de la contraseña debe de rellenarse");
             esValido = false;
             dato_contraseña.focus();
         } else {
-            if(dato_contraseña.value.length !== 8){
+            if (dato_contraseña.value.length !== 8) {
                 crearError("La contrasela debe de ser de una longitud de 8");
                 esValido = false;
                 dato_contraseña.focus();
@@ -199,7 +190,7 @@ window.onload = function () {
         }
         //----------------------GENERO------------------------
         let generos = formu.querySelector("input[name='genero']:checked");
-        if(!generos){
+        if (!generos) {
             crearError("Debes de selecionar un genero");
             esValido = false;
             generos.focus();
@@ -208,16 +199,16 @@ window.onload = function () {
             esValido = true;
         }
         //----------------------SELECT------------------------
-        if(listaPaises.value.trim() === ""){
+        if (listaPaises.value.trim() === "") {
             esValido = false;
             listaPaises.focus();
             crearError("El pais seleccionado no esta en la lista");
-          } else {
+        } else {
             todoGood("Se ha seleccionado: " + `${listaPaises.value}`);
             esValido = true;
-          }
+        }
 
-          if (esValido) {
+        if (esValido) {
             // Muestra todos los datos correctos
             if (
                 dato_dni.value &&
@@ -242,10 +233,11 @@ window.onload = function () {
                 `;
                 document.body.appendChild(divDatos);
             }
-        
+
             // Redirige después de un breve retraso (opcional)
             setTimeout(() => {
                 window.location.href = "./web_bien.html";
+                esValido = true;
             }, 6000); // Redirige después de 2 segundos
         }
     }, false);

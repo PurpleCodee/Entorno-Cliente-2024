@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="9.js"></script>
+    <title>Validación de DNI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        .valido {
+            color: green;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Validación de DNI</h1>
+    <form id="dni-form">
+        <!-- Campo de texto para el DNI -->
+        <label for="dni">DNI</label>
+        <input type="text" id="dni" placeholder="Introduce tu DNI (8 números y 1 letra)" />
+
+        <!-- Elementos adicionales para perder el foco -->
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="Introduce tu nombre" />
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" placeholder="Introduce tu apellido" />
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Contenedor para mostrar mensajes de validación -->
+    <div id="mensaje"></div>
+</body>
+</html>

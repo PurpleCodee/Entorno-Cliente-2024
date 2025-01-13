@@ -1,0 +1,337 @@
+charAt(index) 🪡
+Devuelve el carácter en la posición especificada.
+
+"Hola".charAt(1); // "o"
+
+concat(...strings) ➕
+Une dos o más cadenas.
+
+"Hola".concat(" Mundo"); // "Hola Mundo"
+
+includes(substring) 🔍
+Verifica si la cadena contiene una subcadena.
+
+"Hola".includes("la"); // true
+
+indexOf(substring) 📍
+Encuentra la posición de la primera aparición de una subcadena.
+
+"Hola".indexOf("a"); // 3
+
+toUpperCase() 🔠
+Convierte la cadena a mayúsculas.
+
+"Hola".toUpperCase(); // "HOLA"
+
+toLowerCase() 🔡
+Convierte la cadena a minúsculas.
+
+"Hola".toLowerCase(); // "hola"
+
+split(separator) ✂️
+Divide la cadena en un array según el separador.
+
+"Hola,Mundo".split(","); // ["Hola", "Mundo"]
+
+trim() ✂️
+Elimina espacios en blanco al inicio y al final.
+
+    " Hola ".trim(); // "Hola"
+
+Métodos de Arrays 🧩
+
+    push(elemento) 📦
+    Añade un elemento al final del array.
+
+const arr = [1, 2];
+arr.push(3); // [1, 2, 3]
+
+pop() 🎈
+Elimina el último elemento del array y lo devuelve.
+
+const arr = [1, 2, 3];
+arr.pop(); // 3
+
+shift() ⬅️
+Elimina el primer elemento del array y lo devuelve.
+
+const arr = [1, 2, 3];
+arr.shift(); // 1
+
+unshift(...elementos) ➡️
+Añade elementos al principio del array.
+
+const arr = [2, 3];
+arr.unshift(1); // [1, 2, 3]
+
+slice(inicio, fin) 🍕
+Devuelve una copia de una parte del array.
+
+const arr = [1, 2, 3, 4];
+arr.slice(1, 3); // [2, 3]
+
+splice(inicio, cantidad, ...nuevosElementos) 🧵
+Añade o elimina elementos en el array.
+
+const arr = [1, 2, 3];
+arr.splice(1, 1, 4); // [1, 4, 3]
+
+sort() 🔡
+Ordena los elementos del array.
+
+const arr = [3, 1, 2];
+arr.sort(); // [1, 2, 3]
+
+reverse() 🔄
+Invierte el orden del array.
+
+const arr = [1, 2, 3];
+arr.reverse(); // [3, 2, 1]
+
+map(callback) 🗺️
+Crea un nuevo array aplicando una función a cada elemento.
+
+[1, 2, 3].map(x => x * 2); // [2, 4, 6]
+
+filter(callback) 🧹
+Filtra los elementos que cumplen una condición.
+
+[1, 2, 3].filter(x => x > 1); // [2, 3]
+
+reduce(callback, valorInicial) ➕
+Reduce los elementos a un solo valor.
+
+[1, 2, 3].reduce((a, b) => a + b, 0); // 6
+
+------------------MAS---------------------
+slice(start, end) 🍰
+Extrae una sección de la cadena (sin incluir el índice end).
+
+javascript
+Copiar código
+"Hola Mundo".slice(0, 4); // "Hola"
+substring(start, end) ✂️
+Similar a slice, pero no acepta índices negativos.
+
+javascript
+Copiar código
+"Hola Mundo".substring(0, 4); // "Hola"
+replace(substring, newString) 🔄
+Reemplaza la primera aparición de una subcadena.
+
+javascript
+Copiar código
+"Hola Mundo".replace("Mundo", "Amigo"); // "Hola Amigo"
+replaceAll(substring, newString) 🔄
+Reemplaza todas las apariciones de una subcadena.
+
+javascript
+Copiar código
+"Hola Mundo Mundo".replaceAll("Mundo", "Amigo"); // "Hola Amigo Amigo"
+startsWith(substring) 🚩
+Verifica si la cadena comienza con una subcadena.
+
+javascript
+Copiar código
+"Hola Mundo".startsWith("Hola"); // true
+endsWith(substring) 🏁
+Verifica si la cadena termina con una subcadena.
+
+javascript
+Copiar código
+"Hola Mundo".endsWith("Mundo"); // true
+padStart(length, padString) 🪡
+Rellena la cadena al principio hasta alcanzar la longitud indicada.
+
+javascript
+Copiar código
+"5".padStart(3, "0"); // "005"
+padEnd(length, padString) 🪡
+Rellena la cadena al final hasta alcanzar la longitud indicada.
+
+javascript
+Copiar código
+"5".padEnd(3, "0"); // "500"
+repeat(count) 🔁
+Repite la cadena un número determinado de veces.
+
+javascript
+Copiar código
+"Hola".repeat(3); // "HolaHolaHola"
+match(regex) 🔍
+Busca coincidencias utilizando expresiones regulares.
+
+javascript
+Copiar código
+"123abc".match(/\d+/); // ["123"]
+localeCompare(string) 🌎
+Compara dos cadenas teniendo en cuenta la configuración regional.
+
+javascript
+Copiar código
+"a".localeCompare("b"); // -1 (a es menor que b)
+
+Métodos de Cadenas Útiles
+endsWith(substring) 🚩
+Verifica si una cadena termina con una subcadena específica.
+
+javascript
+Copiar código
+"Hola".endsWith("la"); // true
+"Hola".endsWith("Ho"); // false
+startsWith(substring) 🚩
+Verifica si una cadena comienza con una subcadena específica.
+
+javascript
+Copiar código
+"Hola".startsWith("Ho"); // true
+"Hola".startsWith("la"); // false
+substring(start, end) ✂️
+Devuelve una parte de la cadena entre dos índices.
+
+javascript
+Copiar código
+"Hola Mundo".substring(0, 4); // "Hola"
+"Hola Mundo".substring(5);    // "Mundo"
+substr(start, length) (Deprecado, pero funcional) ⛔
+Devuelve una parte de la cadena, comenzando en el índice indicado y con una longitud específica.
+
+javascript
+Copiar código
+"Hola Mundo".substr(0, 4); // "Hola"
+replace(substring, newSubstring) 🔄
+Reemplaza la primera aparición de una subcadena por otra.
+
+javascript
+Copiar código
+"Hola Mundo".replace("Mundo", "Amigo"); // "Hola Amigo"
+replaceAll(substring, newSubstring) 🔁
+Reemplaza todas las apariciones de una subcadena por otra.
+
+javascript
+Copiar código
+"Hola Hola".replaceAll("Hola", "Adiós"); // "Adiós Adiós"
+padStart(targetLength, padString) ⬅️
+Rellena una cadena al principio hasta alcanzar una longitud específica.
+
+javascript
+Copiar código
+"5".padStart(3, "0"); // "005"
+padEnd(targetLength, padString) ➡️
+Rellena una cadena al final hasta alcanzar una longitud específica.
+
+javascript
+Copiar código
+"5".padEnd(3, "0"); // "500"
+repeat(count) 🔄
+Repite una cadena un número específico de veces.
+
+javascript
+Copiar código
+"Hola".repeat(3); // "HolaHolaHola"
+localeCompare(otherString) 🌎
+Compara dos cadenas de acuerdo a las reglas locales.
+
+javascript
+Copiar código
+"a".localeCompare("b"); // -1
+"b".localeCompare("a"); // 1
+"a".localeCompare("a"); // 0
+match(regex) 🔍
+Devuelve las coincidencias encontradas con una expresión regular.
+
+javascript
+Copiar código
+"123abc".match(/\d+/g); // ["123"]
+search(regex) 🔍
+Encuentra el índice de la primera coincidencia con una expresión regular.
+
+javascript
+Copiar código
+"Hola Mundo".search(/Mundo/); // 5
+Métodos de Arrays Útiles
+find(callback) 🔍
+Devuelve el primer elemento que cumple con una condición.
+
+javascript
+Copiar código
+[1, 2, 3, 4].find(x => x > 2); // 3
+findIndex(callback) 🔍
+Devuelve el índice del primer elemento que cumple con una condición.
+
+javascript
+Copiar código
+[1, 2, 3, 4].findIndex(x => x > 2); // 2
+some(callback) ❓
+Verifica si al menos un elemento cumple con una condición.
+
+javascript
+Copiar código
+[1, 2, 3].some(x => x > 2); // true
+every(callback) ✅
+Verifica si todos los elementos cumplen con una condición.
+
+javascript
+Copiar código
+[1, 2, 3].every(x => x > 0); // true
+flat(depth) 🗃️
+Aplana arrays anidados en un nivel específico.
+
+javascript
+Copiar código
+[1, [2, [3]]].flat();       // [1, 2, [3]]
+[1, [2, [3]]].flat(2);      // [1, 2, 3]
+flatMap(callback) 🗺️
+Mapea y aplana el resultado en un solo paso.
+
+javascript
+Copiar código
+[1, 2, 3].flatMap(x => [x, x * 2]); // [1, 2, 2, 4, 3, 6]
+join(separator) 🔗
+Une todos los elementos de un array en una cadena.
+
+javascript
+Copiar código
+[1, 2, 3].join("-"); // "1-2-3"
+fill(value, start, end) 🔄
+Rellena el array con un valor específico.
+
+javascript
+Copiar código
+[1, 2, 3, 4].fill(0, 1, 3); // [1, 0, 0, 4]
+copyWithin(target, start, end) ✂️
+Copia una parte del array dentro del mismo array.
+
+javascript
+Copiar código
+[1, 2, 3, 4].copyWithin(0, 2, 4); // [3, 4, 3, 4]
+forEach(callback) 🔁
+Ejecuta una función en cada elemento del array.
+
+javascript
+Copiar código
+[1, 2, 3].forEach(x => console.log(x)); // 1 2 3
+keys() 🔑
+Devuelve un iterador con las claves del array.
+
+javascript
+Copiar código
+const keys = [1, 2, 3].keys();
+for (let key of keys) console.log(key); // 0 1 2
+values() 🔢
+Devuelve un iterador con los valores del array.
+
+javascript
+Copiar código
+const values = [1, 2, 3].values();
+for (let value of values) console.log(value); // 1 2 3
+entries() 🗂️
+Devuelve un iterador con pares [índice, valor].
+
+javascript
+Copiar código
+const entries = [1, 2, 3].entries();
+for (let [index, value] of entries) console.log(index, value); 
+// 0 1
+// 1 2
+// 2 3
