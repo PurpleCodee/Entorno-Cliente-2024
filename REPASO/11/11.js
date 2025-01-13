@@ -95,7 +95,7 @@ window.onload = function () {
             let numeros = dato_dni.value.slice(1);
 
             if (caracter < 'A' || caracter > 'Z') {
-                crearError("La primera letra debe de ser Mayuscula"),
+                crearError("Debe de contener una letra mayuscula al principio"),
                 esValido = false,
                 dato_dni.focus();
 
@@ -187,7 +187,7 @@ window.onload = function () {
             esValido = false;
             dato_contraseña.focus();
         } else {
-            if(dato_contraseña.length < 8 ||dato_contraseña.length > 8){
+            if(dato_contraseña.value.length !== 8){
                 crearError("La contrasela debe de ser de una longitud de 8");
                 esValido = false;
                 dato_contraseña.focus();
