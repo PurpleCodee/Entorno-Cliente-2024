@@ -1,0 +1,68 @@
+// 1. Crear un elemento <div>
+const newDiv = document.createElement('div');
+
+// 2. Agregar texto al <div>
+newDiv.textContent = "¡Hola, soy un nuevo div!";
+
+// 3. Agregar una clase al <div>
+newDiv.className = "mi-clase";
+
+// 4. Insertar el <div> en el cuerpo del documento
+document.body.appendChild(newDiv);
+
+//---------------Si en mi archivo css tengo esto------------
+.mi-estilo {
+    color: white;
+    background-color: teal;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+//---------------ASI DEBO DE CREAR EL ESTILO---------------
+const div = document.createElement('div');
+div.textContent = "Soy un div con estilos de clase";
+
+// Agregar una clase al elemento
+div.className = "mi-estilo"; // Método simple
+
+// Insertar el elemento en el DOM
+document.body.appendChild(div);
+
+
+//--------------PARA ESTILOS DE UNA LINEA USO SET ATTRIBUTO---------
+onst div = document.createElement('div');
+div.textContent = "Soy un div con estilos usando setAttribute";
+
+// Agregar estilos en línea
+div.setAttribute(
+    "style",
+    "color: white; background-color: crimson; padding: 10px; border-radius: 5px;"
+);
+
+// Insertar el elemento en el DOM
+document.body.appendChild(div);
+
+//--------------------- Insertar un <style> en el DOM---------------
+// Crear una etiqueta <style>
+const style = document.createElement('style');
+style.textContent = `
+  .estilo-dinamico {
+      color: white;
+      background-color: purple;
+      padding: 10px;
+      border: 3px solid black;
+      border-radius: 10px;
+  }
+`;
+
+// Agregarla al <head>
+document.head.appendChild(style);
+
+// Crear un elemento con esa clase
+const div = document.createElement('div');
+div.textContent = "Soy un div con estilos dinámicos";
+div.className = "estilo-dinamico"; // Usar la clase
+
+// Insertar el div en el DOM
+document.body.appendChild(div);

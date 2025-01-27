@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./parte1.js"></script>
+    <title>Parte 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .alumno-card {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        h2,
+        h3,
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="alumno-card">
+        <h2>Alumno:</h2>
+        <p><strong>Edad:</strong> <span id="edad-alumno"></span></p>
+        <p><strong>Ciclo:</strong> <span id="ciclo-alumno"></span></p>
+        <p><strong>Curso:</strong> <span id="curso-alumno"></span></p>
+
+        <h3>Tutor</h3>
+        <p><strong>Nombre:</strong> <span id="nombre-tutor"></span></p>
+        <p><strong>Edad:</strong> <span id="edad-tutor"></span></p>
+        <p><strong>Título Universitario:</strong> <span id="titulo-tutor"></span></p>
+
+        <h3>Asignaturas</h3>
+        <div class="asignaturas" id="asignaturas-list"></div>
+    </div>
+</body>
+
+</html>
