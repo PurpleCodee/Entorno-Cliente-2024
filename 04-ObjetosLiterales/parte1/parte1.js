@@ -93,15 +93,15 @@ window.onload = function () {
 
     //Muestro las asignaturas
     for (const asignatura of listaAsignaturas) {
-        CrearTitulo("Asignatura: " , "asignaturas");
+        CrearTitulo("Asignatura: ", "asignaturas");
         //como ahora voy a rrecorrer objetos
         for (const key_asignaturas in asignatura) {
             CrearElemento(`${key_asignaturas} : `, asignatura[key_asignaturas], "asignaturas");
         }
-        
+
     }
 
-        //--------------------------ACEDO A LOS ELEMENTOS DEL HTML-----------------------------------
+    //--------------------------ACEDO A LOS ELEMENTOS DEL HTML-----------------------------------
 
     //Funcion para crear el texto a los datos.
     function CrearElemento(mensaje, dato, papa) {
@@ -125,6 +125,66 @@ window.onload = function () {
         parrafo.style.color = "purple";
         divPadre.appendChild(parrafo);
     }
+
+    //--------------------------PARTE 2 CREAR FUNCIONES-----------------------------------
+    //Devuelve una cadena ton todos los datos del tutor objeto(que la info sea clara)
+
+    //-----------------------FUNCIONES TUTOR----------------------------
+    function Mostrar(objeto) {
+        let info_objeto = "";
+        for (const key_objeto in objeto) {
+            CrearElemento(`${key_objeto} : `, objeto[key_objeto], "tutor_funcion");
+            info_objeto += `${key_objeto}: ${objeto[key_objeto]}\n`;
+        }
+        //fuera del bucle devuelvo
+        return info_objeto;
+    }
+
+    //Llamo a la funcion
+    let datos_tutor = Mostrar(tutor);
+    console.log(datos_tutor);
+
+    //Funcion que sirve para cambiar el nombre al tutor
+    function CambiarNombre(objeto, nuevoNombre) {
+        //verifico que el objeto y la propiedad exista
+        if (objeto && objeto.nombre !== undefined) {
+            objeto.nombre = nuevoNombre;
+            CrearElemento("Nuevo nombre del tutor es: ", nuevoNombre, "tutor_funcion");
+
+        }
+    }
+    //llamo a la funcion de cambiarNombre
+    let nombreNuevoTutor = CambiarNombre(tutor, "Sandra");
+    console.log(nombreNuevoTutor);
+
+    //-----------------------FUNCIONES ASIGNATURA----------------------------
+    //devuelve la informaccion de todo el objeto
+    function mostrar(objeto) {
+        let info_objeto = "";
+        for (const key_objeto in objeto) {
+            CrearElemento(`${key_objeto} : `, objeto[key_objeto], "asignatura_funcion");
+            info_objeto += `${key_objeto}: ${objeto[key_objeto]}\n`;
+        }
+        return info_objeto;
+    }
+
+    let datos_asignatura = mostrar(asignatura);
+    console.log(datos_asignatura);
+
+    //funcion que permite cambiar la hora de la asignatura
+    function cambiarHora(objeto, hora) {
+        if (objeto && objeto.horas_totales !== undefined) {
+            //verifico que la hora se un numero valido
+            if (typeof hora === 'number' && !isNaN(hora) && hora > 0) {
+                objeto.horas_totales = hora;
+                CrearElemento("Las horas actualizadas: ", hora, "asignatura_funcion");
+            }
+        }
+    }
+    let horaAsignaturaNueva = cambiarHora(asignatura, 33);
 }
 
-    
+
+
+
+
