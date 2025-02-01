@@ -1,0 +1,66 @@
+🔹 ¿Qué es localStorage y para qué sirve?
+localStorage es una API de almacenamiento en el navegador que permite guardar datos en formato clave-valor de manera persistente (incluso si el usuario cierra la pestaña o el navegador). Es útil para guardar configuraciones, preferencias del usuario, estados de una aplicación, entre otros.
+
+🔥 Cómo usar localStorage en JavaScript
+1️⃣ Guardar un valor en localStorage
+
+localStorage.setItem("nombre", "Juan");
+✅ Esto guardará la clave "nombre" con el valor "Juan".
+
+2️⃣ Obtener un valor guardado
+
+let nombre = localStorage.getItem("nombre");
+console.log(nombre); // "Juan"
+✅ Recupera el valor almacenado.
+
+3️⃣ Eliminar un valor específico
+
+localStorage.removeItem("nombre");
+✅ Borra solo el valor asociado a la clave "nombre".
+
+4️⃣ Borrar todo el almacenamiento
+
+localStorage.clear();
+✅ Elimina todos los datos guardados en localStorage.
+
+🔥 Cómo guardar objetos en localStorage
+🚨 localStorage solo almacena cadenas de texto, así que si quieres guardar objetos o arrays, debes convertirlos a JSON con JSON.stringify().
+
+Guardar un objeto
+
+const usuario = { nombre: "Carlos", edad: 30 };
+localStorage.setItem("usuario", JSON.stringify(usuario));
+Recuperar un objeto
+
+const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
+console.log(usuarioGuardado.nombre); // "Carlos"
+console.log(usuarioGuardado.edad);   // 30
+✅ JSON.stringify() convierte un objeto en string y JSON.parse() lo reconvierte a objeto.
+
+🔥 Ejemplo práctico con localStorage
+📌 Guardar y recuperar una lista de libros en localStorage
+
+const libros = [
+    { titulo: "El Quijote", autor: "Cervantes" },
+    { titulo: "1984", autor: "Orwell" }
+];
+
+// Guardar la lista en localStorage
+localStorage.setItem("libros", JSON.stringify(libros));
+
+// Recuperar la lista
+const librosGuardados = JSON.parse(localStorage.getItem("libros"));
+console.log(librosGuardados);
+✅ Guarda la lista de libros y la recupera correctamente.
+
+🎯 ¿Cuándo usar localStorage?
+✅ Para guardar preferencias del usuario (tema oscuro, idioma, configuración).
+✅ Para almacenar datos temporales en una aplicación web.
+✅ Para guardar información de formularios y evitar que se pierda.
+✅ Para mantener la sesión del usuario sin necesidad de una base de datos.
+
+🚨 Limitaciones de localStorage:
+
+Máximo de 5MB de almacenamiento por dominio.
+Solo almacena strings, por lo que hay que usar JSON.stringify() para objetos.
+No es seguro para datos sensibles (cualquier JavaScript en la página puede acceder a localStorage).
