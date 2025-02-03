@@ -13,11 +13,16 @@ window.onload = function () {
     let nuevoLibro = localStorage.getItem("libroInsertado");
 
     //Recupero la lista original de libros desde libros.js 
-    let libros = library || [];
+    let libros;
+    if (library) {
+        libros = library;
+    } else {
+        libros = [];
+    }
 
 
     //compruebo que el nuevoLibro existe
-    if(nuevoLibro){
+    if (nuevoLibro) {
         //cuando recupero datos debo de volver a parsear a un JSON --> objetos📋
         nuevoLibro = JSON.parse(nuevoLibro);
 
