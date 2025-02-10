@@ -4,17 +4,18 @@ window.onload = function () {
 
 
     //Optengo la ide del personaje desde la url
-    const urlParams = new URLSearchParams(window.location.search);
-    const personajeId = urlParams.get("id"); // Obtener el id desde la URL
+    //const urlParams = new URLSearchParams(window.location.search);
+    let personajeId = localStorage.getItem("idPersonaje");
     //compruebo que la id existe
-    if (!personajeId) {
+    if (personajeId) {
+        personajeId = JSON.parse(personajeId);
+    } else {
         alert("No se ha encontrado la id del personaje");
         return;
-
     }
 
     //1º Necesito la url de la api
-    const urlApi = `https://dragonball-api.com/api/characters/${personajeId}`; //aqui ya tengo las transformaciones
+    const urlApi = "https://dragonball-api.com/api/characters/" + personajeId; //aqui ya tengo las transformaciones
 
 
     //✨---------------------FETCH PARA PERSONAJES-----------------✨

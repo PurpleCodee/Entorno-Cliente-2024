@@ -64,11 +64,14 @@ window.onload = function () {
                          // Añadir el ID del personaje al artículo
                          article.setAttribute("data-id", personaje.id);
                          // Obtener el ID del personaje desde el atributo data-id del artículo
-                         let personajeId = article.getAttribute("data-id");
+                         //let personajeId = article.getAttribute("data-id");
+
+                         let personajeId = personaje.id;
+                         localStorage.setItem("idPersonaje",JSON.stringify(personajeId));
  
                      // Redirigir a la página de detalles con el ID del personaje en la URL
                      if(personajeId) {
-                         window.location.href = `datosPersonaje.html?id=${personajeId}`;
+                         window.location.href = "datosPersonaje.html?id=" + personajeId;
                      }
                          
                      })
