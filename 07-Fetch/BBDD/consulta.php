@@ -12,7 +12,7 @@ if($conexion->connect_errno){
     exit();
 }
 
-$consulta = "SELECT * FROM juegos";
+$consulta = "SELECT * FROM juegos";//en vez de juegos otra cosa que sea la base de datos
 $resultado=$conexion->query($consulta);
 $res = $resultado->fetch_all(MYSQLI_ASSOC);
 

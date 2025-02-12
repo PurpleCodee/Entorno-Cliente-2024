@@ -1,139 +1,96 @@
-window.onload = function () {
+window.onload=()=>{
 
-    //1º Necesito la url de la api de Libros
-    const urlApi = "https://www.jaimeweb.es/medac/books.json";
+    let titulo=document.querySelector("h1");
 
-    //hago el fetch
-    fetch(urlApi)
+   // let contador=library.length;
+
+    let contenedor=document.querySelector("section");
+
+   // titulo.innerText="Hay "+contador+" Libros en la Biblioteca"
+
+
+    //let objLibros=JSON.parse(library);
+
+    let url="https://www.jaimeweb.es/medac/books.json";
+    
+    
+    fetch(url)
         .then(function (respuesta) {
-
-            //campuro la respuesta
-            console.log(respuesta);
-
-            //compruebo si hay algun error
             if (!respuesta.ok) {
-                throw new Error("Error de fetch: " + respuesta.status);
+                throw new Error("Error "+respuesta.status);
+                
             }
-
-            //Devuelvo en formato json
             return respuesta.json();
         })
-
         .then(function (datos) {
-            //Aqui dentro pongo el codigo "util"
+            
+            
+            let libros=datos.library;
+            console.log(libros);
+            
+            libros.forEach(element => {
 
-            //----------------⬆️⬆️MUY IMPORTANTE A LO PRIMERO QUE ACCEDO ARRIBA⬆️⬆️------------
-            let section = document.querySelector("section");
-            section.setAttribute("id", "seccionLibros");
+                let articulo =document.createElement("article");
+                articulo.className="presentacion";
+                contenedor.appendChild(articulo);
 
-            // Asignar un id a los elementos que lo necesitan
-            let h1 = document.querySelector("h1");
-            h1.setAttribute("id", "tituloLibros");
+                let titulo=document.createElement("h3");
+                let nombre=JSON.stringify(element.book.title);
+                
+                articulo.appendChild(titulo);
+                titulo.innerText=nombre;
 
-            //✨---------------RECUPERO EL NUEVO LIBRO--------------✨
-            let nuevoLibro = localStorage.getItem("libroInsertado");
+                let ima=document.createElement("img");
+                let propiedad=JSON.stringify(element.book.cover);
+                propiedad = propiedad.replace(/"/g, "");
+                ima.setAttribute("src",propiedad)
+                articulo.appendChild(ima);
 
-            //Recupero la lista original de libros desde datos
-            let libros;
-            if (datos) {
-                libros = datos;
-            } else {
-                libros = [];
-            }
+                articulo.addEventListener("click",()=>{
+                    let objetString=JSON.stringify(element.book);
+                    console.log(objetString);
+            
+                    localStorage.setItem("libro",objetString);            
+        
+                    window.location.href="./mostrar.html";  
+                })
 
-
-            //compruebo que el nuevoLibro existe
-            if (nuevoLibro) {
-                //cuando recupero datos debo de volver a parsear a un JSON --> objetos📋
-                nuevoLibro = JSON.parse(nuevoLibro);
-
-                //Añado el nuevo libro a la lista
-                libros.push(nuevoLibro);
-
-                //Elimino el localStorage
-                localStorage.removeItem("libroInsertado");
-
-            }
-
-
-            //------------FUNCIONES PROPIAR -CREAR ELEMENTO------------
-            function CrearElemento(libro, papa) {
-
-
-                // Crear el artículo con la clase 'presentacion'
-                let article = document.createElement("article");
-
-                //de esta manera añado una clase al elemento
-                article.classList.add("presentacion");
-
-                // Crear el h3 con el título del libro
-                let h3 = document.createElement("h3");
-                h3.textContent = libro.title;
-
-                // Crear la imagen
-                let img = document.createElement("img");
-                img.src = libro.cover;
-
-                //Este evento me sirve para recoger la info del libro al que le he echo click
-                img.addEventListener("click", () => {
-                    guardarDatitos(libro);
-                });
-
-
-                // Agregar h3 e img al article
-                article.appendChild(h3);
-                article.appendChild(img);
-
-                // Obtener la sección donde se agregarán los artículos
-                let section = document.getElementById(papa);//papa sera la clase
-
-                //añado el articulo a la seccion
-                section.appendChild(article);
-
-                // Actualizar el H1 con el número de libros
-                let h1 = document.querySelector("h1");
-                //con el .length se cuantos section hay por lo que se cuantos libros hay
-                let numLibros = section.getElementsByTagName("article").length;
-
-                //Ahora al h1 le hagrego un texto + el numero de libros que he recogido
-                h1.textContent = `Número de libros: ${numLibros}`;
-            }
-
-
-            //Debo de recorrer el objeto libreria
-
-            //library es un array por lo que simplemente lo debo de reocrrer con un for of
-            for (let libro of libros) {
-                //Con mi funcion cojo los datos del json que me interesen
-                CrearElemento(libro.book, "seccionLibros");
-            }
-
-            //----------------EN ESTE ARCHIVO QUIERO RECOGER CIERTOS DATOS---------
-            /**
-             * Quiero recoger los datos necesarios para mostrarlos en mostrar.js con localStorage
-             */
-
-            // Función para guardar el libro en localStorage y redirigir a mostrar.html
-            function guardarDatitos(libro) {
-
-                let libroSeleccionado = {
-                    title: libro.title,
-                    pages: libro.pages,
-                    genre: libro.genre,
-                    synopsis: libro.synopsis,
-                    year: libro.year,
-                    ISBN: libro.ISBN,
-                    author: libro.author.name, // Nombre del autor
-                    cover: libro.cover
-                };
-                localStorage.setItem("libroSeleccionado", JSON.stringify(libroSeleccionado));
-                window.location.href = "mostrar.html"; // Redirigir a la otra página
-            }
+            });
 
 
         })
-        //coge el error y informa(nos coge todos los errores del codigo)
         .catch(function (error) {
-            alert("Problemas accediendo a la url: " + error);
+            alert("Error ".error);
         })
+
+
+
+
+
+/*
+
+    for (const key in library) {
+        //console.log(library[key]);
+        
+        //creamos elemento
+        
+
+        //creamos h3 
+        
+        
+       
+
+        //creamos la imagen
+
+       
+
+    //    console.log(ima);
+        
+
+        
+    }
+*/
+
+
+
 }

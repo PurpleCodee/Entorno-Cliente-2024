@@ -1,5 +1,5 @@
 document.querySelector("button").addEventListener("click", function () {
-    let salida = document.querySelector("#salida");
+    let salida = document.querySelector("#salida");//papa de los elementos que voy a crear
     const url = "http://www.jaimeweb.es/medac/ejemplos/addJuego.php";//En esta url tengo la ruta al arhivo que tiene el insert si quiero mostrar los datos que hay ponso el archivo que tiene el select
 
     //En este caso voy a recoger los datos del formulario por lo que accedo a el 
@@ -21,8 +21,8 @@ document.querySelector("button").addEventListener("click", function () {
     console.log("---------------------------------------");
     
     const cabecera = {
-        method: "POST",
-        body: fd
+        method: "POST",//get para recoger
+        body: fd//si es get no le paso el body
     }
     
   
@@ -42,8 +42,10 @@ document.querySelector("button").addEventListener("click", function () {
         //Capturo y gestiono los datos
         console.log(datos);
         let mesajito = document.createElement("p");
-        mesajito.textContent =`Datos insertados correctamente: ${JSON.stringify(datos)}`;
+        mesajito.textContent =`Datos insertados correctamente: ${JSON.stringify(datos)}`;//convierto los datos a texto
         document.body.appendChild(mesajito);
+
+        //Si quiero toda la info con el get hago un return de datos
        
       })
       .catch(function (error) {
